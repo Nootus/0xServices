@@ -4,3 +4,5 @@
 
 /.vs
 /Contracts/bin
+/Testchain/DevChain/geth
+/Testchain/DevChain/history
