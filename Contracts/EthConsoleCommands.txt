@@ -1,0 +1,49 @@
+// Dev chain
+var platformAddress = "0x1e2f51e97f2772dafe59d345bbe48c32a7d2b46b";
+var clientAddress = "0x8298eca41e01f8c285e17e2546b8ceb0d24eda18";
+var contractorAddress = "0x1d9de997cf7bedfb709881657df5a7b9cc5689fe";
+
+var password = "password";
+
+// transfer some ethers too client & contractor for gas
+personal.unlockAccount(platformAddress, "password");
+eth.sendTransaction({ from: platformAddress, to: clientAddress, value: web3.toWei(1, "ether")});
+
+var abi = [{"constant":true,"inputs":[],"name":"getContractorAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"pay","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"contractorAmount","type":"uint256"}],"name":"arbitrate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"validate","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"fund","outputs":[],"payable":true,"type":"function"},{"constant":false,"inputs":[{"name":"_contractor","type":"address"}],"name":"hire","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_platform","type":"address"}],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"}];
+var bytecode = "0x6060604052341561000f57600080fd5b60405160208061068d833981016040528080519060200190919050505b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b505b6105ce806100bf6000396000f30060606040523615610081576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630a48a152146100945780631b9265b8146100e957806341c0e1b5146100fe57806342551d3b146101135780636901f66814610136578063b60d428814610163578063d9d6bd861461016d575b341561008c57600080fd5b5b600080fd5b005b341561009f57600080fd5b6100a76101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100f457600080fd5b6100fc6101d0565b005b341561010957600080fd5b61011161029b565b005b341561011e57600080fd5b61013460048080359060200190919050506103a3565b005b341561014157600080fd5b610149610488565b604051808215151515815260200191505060405180910390f35b61016b610492565b005b341561017857600080fd5b6101a4600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610501565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690505b90565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561022b57600080fd5b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc6003549081150290604051600060405180830381858888f19350505050151561028f57600080fd5b60006003819055505b5b565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b60006003541115610366576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc6003549081150290604051600060405180830381858888f19350505050151561036557600080fd5b5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5b565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103ff57600080fd5b600081111561047b57600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050151561046a57600080fd5b806003600082825403925050819055505b61048361029b565b5b5b50565b6000600190505b90565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156104ed57600080fd5b346003600082825401925050819055505b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561055c57600080fd5b80600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b505600a165627a7a7230582066bd32a50a64fc9a921543c525164ccceef430d5bf3898360b29751060b4662e0029";
+var gas = eth.estimateGas({ data: bytecode} ) * 2;
+
+// deploying the contract using the client address
+personal.unlockAccount(clientAddress, "password");
+var contract = eth.contract(abi);
+var instance = contract.new(platformAddress, { 
+   from:clientAddress,
+   data:bytecode,
+   value: web3.toWei(0, "finney")
+   gas:gas}, function(err, contractInstance){
+    if(!err) {
+       if(!contractInstance.address) {
+           console.log("Tx Hash: " + contractInstance.transactionHash) // The hash of the transaction, which deploys the contract
+       } else {
+           console.log("Address: " + contractInstance.address) // the contract address
+       }
+    }
+	else {
+		console.log(err);
+	}
+});
+
+// hiring the contractor
+instance.hire(contractorAddress, { from: clientAddress });
+// checking the contractor
+instance.getContractor();
+
+// funding the contract
+instance.fund({ from: clientAddress, value: web3.toWei(1, "finney")  });
+
+// checking for the balance in contract
+eth.getBalance(instance.address);
+
+// paying the contractor and checking contractor balance
+instance.pay({ from: clientAddress });
+eth.getBalance(contractorAddress);
