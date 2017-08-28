@@ -21,7 +21,7 @@ contract Service {
     mapping(address => Bidder) bids; // storing all bids received for the contract
 
     /// @notice constructor creating service for the client
-    /// @param 0x will the platform provider
+    /// @param _platform 0x will the platform provider
     function Service (address _platform) {
         client = msg.sender;
         platform = _platform;
@@ -58,7 +58,7 @@ contract Service {
     }    
 
     /// @notice hiring the contractor to perform the work
-    /// @param ethereum address of the contractor
+    /// @param _contractor Ethereum address of the contractor  
     function hire (address _contractor) onlyClient {
         contractor = _contractor;
     }
@@ -67,6 +67,12 @@ contract Service {
     /// @return contractor address
     function getContractorAddress() public constant returns (address) {
         return contractor;
+    }
+
+    /// @notice Get the addresses of client, contractor and 0x platform
+    /// @return client, contractor and platform address
+    function getAllAddresses() public constant returns (address, address, address) {
+        return (client, contractor, platform);
     }
 
     /// @notice based on the agreement, client will fund the contract
@@ -88,7 +94,7 @@ contract Service {
     }
 
     /// @notice 0x performs the dispute settlement and transfers money accordingly
-    /// @param amount to be paid to contractor, remaining amount will be paid to client
+    /// @param contractorAmount Amount to be paid to contractor, remaining amount will be paid to client
     function disputeSettlement (uint contractorAmount) onlyPlatform {
         if (contractorAmount > 0) {
             contractor.transfer(contractorAmount);
