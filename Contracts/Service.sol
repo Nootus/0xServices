@@ -4,7 +4,7 @@ pragma solidity ^0.4.14;
 contract Service {
     address client;
     address contractor;
-    address platform; // 0x is the owner every contract
+    address public arbiter; // 0x is the default arbiter for every contract
 
     uint budget; // amount budgeted for the service
     uint amountPaid; // amount paid to the contractor
@@ -21,10 +21,10 @@ contract Service {
     mapping(address => Bidder) bids; // storing all bids received for the contract
 
     /// @notice constructor creating service for the client
-    /// @param _platform 0x will the platform provider
-    function Service (address _platform) {
+    /// @param _arbiter 0x will the arbiter for this contract
+    function Service (address _arbiter) {
         client = msg.sender;
-        platform = _platform;
+        arbiter = _arbiter;
     }
 
     /// @notice modifier to ensure client can only execute a function
@@ -39,9 +39,9 @@ contract Service {
         _;
     }    
 
-    /// @notice modifier to ensure 0x can only perform
-    modifier onlyPlatform() {
-        require(msg.sender == platform);
+    /// @notice modifier to ensure the tasks to be performed by arbiter
+    modifier onlyArbiter() {
+        require(msg.sender == arbiter);
         _;
     }    
 
@@ -52,8 +52,8 @@ contract Service {
     }
 
     /// @notice modifier for client to perform actions, 0x can also perform these actions
-    modifier onlyClientOrPlatform() {
-        require(msg.sender == platform || msg.sender == client);
+    modifier onlyClientOrArbiter() {
+        require(msg.sender == arbiter || msg.sender == client);
         _;
     }    
 
@@ -69,20 +69,20 @@ contract Service {
         return contractor;
     }
 
-    /// @notice Get the addresses of client, contractor and 0x platform
-    /// @return client, contractor and platform address
+    /// @notice Get the addresses of client, contractor and arbiter
+    /// @return client, contractor and arbiter address
     function getAllAddresses() public constant returns (address, address, address) {
-        return (client, contractor, platform);
+        return (client, contractor, arbiter);
     }
 
     /// @notice based on the agreement, client will fund the contract
     /// this amount will be payed to contractor at the end
-    function fund() onlyClient payable {
+    function fund() external onlyClient payable {
         amountPaid += msg.value;
     }
 
     /// @notice Once the service is completed, client pays to the contractor
-    function pay() onlyClient {
+    function pay() public onlyClient {
         contractor.transfer(amountPaid);
         amountPaid = 0;
     }
@@ -95,7 +95,7 @@ contract Service {
 
     /// @notice 0x performs the dispute settlement and transfers money accordingly
     /// @param contractorAmount Amount to be paid to contractor, remaining amount will be paid to client
-    function disputeSettlement (uint contractorAmount) onlyPlatform {
+    function disputeSettlement (uint contractorAmount) onlyArbiter {
         if (contractorAmount > 0) {
             contractor.transfer(contractorAmount);
             amountPaid -= contractorAmount;
@@ -106,7 +106,7 @@ contract Service {
     }
 
     /// @notice close the contract once service is rendered and payment is made
-    function kill() onlyPlatform {
+    function kill() onlyArbiter {
         if (amountPaid > 0) {
             client.transfer(amountPaid);
         }
