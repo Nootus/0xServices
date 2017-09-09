@@ -3,6 +3,6 @@
 ################################################################################
 
 /.vs
-/Contracts/bin
-/Testchain/DevChain/geth
-/Testchain/DevChain/history
+**/Contracts/bin
+**/DevChain/geth
+**/DevChain/history
