@@ -17,11 +17,5 @@ namespace _0xServices.Web.Controllers
         {
             return this.View();
         }
-
-        public IActionResult Error()
-        {
-            this.ViewData["RequestId"] = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier;
-            return this.View();
-        }
     }
 }
