@@ -1,0 +1,7 @@
+﻿.top-bar {
+    height: 40px;
+    position: relative;
+    z-index: 22;
+    background-color: #202428;
+    font-size: 13px;
+}
