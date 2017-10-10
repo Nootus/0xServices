@@ -22,15 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\layout\TopBar.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web\Nootus.Fabric.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\layout\TopBar.ts" />
+    <TypeScriptCompile Include="ClientApp\app\layout\LayoutComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\layout\LayoutModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\layout\TopBarComponent.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

@@ -2,8 +2,8 @@
 
 @Component({
     selector: 'top-bar',
-    templateUrl: './TopBar.html',
-    styleUrls: ['./TopBar.css']
+    templateUrl: './TopBarComponent.html',
+    styleUrls: ['./TopBarComponent.css']
 })
 export class TopBarComponent {
 }

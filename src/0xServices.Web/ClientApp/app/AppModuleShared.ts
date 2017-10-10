@@ -5,8 +5,9 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { LayoutModule } from "./layout/LayoutModule";
+
 import { AppComponent } from "./AppComponent";
-import { TopBarComponent } from "./layout/TopBar";
 
 import { NavMenuComponent } from "./components/navmenu/navmenu.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -16,8 +17,6 @@ import { CounterComponent } from "./components/counter/counter.component";
 @NgModule({
     declarations: [
         AppComponent,
-        TopBarComponent,
-
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
@@ -28,6 +27,9 @@ import { CounterComponent } from "./components/counter/counter.component";
         HttpModule,
         FormsModule,
         FlexLayoutModule,
+
+        LayoutModule,
+
         RouterModule.forRoot([
             { path: "", redirectTo: "home", pathMatch: "full" },
             { path: "home", component: HomeComponent },

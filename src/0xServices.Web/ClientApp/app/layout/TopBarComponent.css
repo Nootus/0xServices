@@ -1,0 +1,15 @@
+﻿.top-bar {
+    height: 40px;
+    position: relative;
+    z-index: 22;
+    background-color: #202428;
+    font-size: 13px;
+}
+.top-bar-title {
+    color: #00bcf2;
+    width: 160px;
+    font-size: 20px;
+    padding-left: 15px;
+    height: 100%;
+    line-height: 40px;
+}
