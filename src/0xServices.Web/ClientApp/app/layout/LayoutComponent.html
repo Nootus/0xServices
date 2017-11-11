@@ -1,9 +1,12 @@
 ﻿<top-bar></top-bar>
 <div fxLayout="row">
-    <div fxFlex="25">
-
+    <div fxFlex="25" class="has-hover">
+        How are you
+        <br/>
+        <ng-content select="[render-section=sidebar]"></ng-content>
     </div>
     <div fxFlex>
-        <ng-content></ng-content>
+        <ng-content select="[render-body]"></ng-content>
     </div>
 </div>
+ 

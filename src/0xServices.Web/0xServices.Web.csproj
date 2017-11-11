@@ -22,10 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\fabric\Session.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web\Nootus.Fabric.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\fabric\FabricModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\Session.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\LayoutComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\LayoutModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\TopBarComponent.ts" />
