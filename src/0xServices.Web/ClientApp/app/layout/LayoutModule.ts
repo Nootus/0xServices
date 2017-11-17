@@ -1,6 +1,7 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { FabricModule } from "../fabric/FabricModule";
 
 import { TopBarComponent } from "./TopBarComponent";
 import { LayoutComponent } from "./LayoutComponent";
@@ -12,7 +13,8 @@ import { LayoutComponent } from "./LayoutComponent";
     ],
     imports: [
         CommonModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        FabricModule
     ],
     exports: [
         LayoutComponent

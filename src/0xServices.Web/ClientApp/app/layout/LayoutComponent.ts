@@ -6,4 +6,5 @@
     styleUrls: ['./LayoutComponent.css']
 })
 export class LayoutComponent {
+    testvar: string = "Temp variable";
 }

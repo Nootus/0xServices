@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { FabricModule } from "./fabric/FabricModule";
 import { LayoutModule } from "./layout/LayoutModule";
 
 import { AppComponent } from "./AppComponent";
@@ -26,6 +27,7 @@ import { CounterComponent } from "./components/counter/counter.component";
         FormsModule,
         FlexLayoutModule,
 
+        FabricModule,
         LayoutModule,
 
         RouterModule.forRoot([

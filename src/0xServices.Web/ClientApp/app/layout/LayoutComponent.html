@@ -1,12 +1,16 @@
 ﻿<top-bar></top-bar>
+<render-section name="layout">
+    This is coming from section: {{testvar}}
+    <br /> In Content
+</render-section>
 <div fxLayout="row">
-    <div fxFlex="25" class="has-hover">
-        How are you
-        <br/>
-        <ng-content select="[render-section=sidebar]"></ng-content>
+    <div fxFlex="25">
+        <b>Menu</b> <br />
+        <a routerLink="/home">Home</a> <br />
+        <a routerLink="/counter">Counter</a> <br />
     </div>
     <div fxFlex>
-        <ng-content select="[render-body]"></ng-content>
+        <render-body></render-body>
     </div>
 </div>
  
