@@ -1,4 +1,4 @@
-﻿import { Component, ViewChild, TemplateRef, ViewContainerRef, AfterViewInit, AfterContentInit } from "@angular/core";
+﻿import { Component, ViewChild, TemplateRef, ViewContainerRef, AfterContentInit, OnDestroy } from "@angular/core";
 import { Input, ChangeDetectorRef } from "@angular/core";
 
 import { RenderService } from "./RenderService";
@@ -7,26 +7,26 @@ import { RenderService } from "./RenderService";
     selector: "render-section",
     templateUrl: "./RenderSectionComponent.html"
 })
-export class RenderSectionComponent implements AfterContentInit {
+export class RenderSectionComponent implements AfterContentInit, OnDestroy  {
     @ViewChild("sectionRef") template: TemplateRef<any>;
     @Input() name: string;
     @Input() target: string;
+    @Input() hidden: string;
 
-    constructor(public service: RenderService, private cd: ChangeDetectorRef) {
+    constructor(public service: RenderService, private changeDetectorRef: ChangeDetectorRef) {
     }
 
     ngAfterContentInit() {
-        if (this.name !== undefined) {
-            this.service.setComponentChangeDetector(this.cd);
-        }
+        this.service.push(this.name, this.target, this.template, this.changeDetectorRef);
+    }
 
-        this.service.currentTemplate = this.template
-        this.service.detectChanges();
+    ngOnDestroy() {
+        this.service.pop(this.name, this.target);
     }
 
     getTemplate(): TemplateRef<any> | undefined {
         if (this.name !== undefined) {
-            return this.service.currentTemplate;
+            return this.service.getTemplate(this.name);
         }
         else {
             return undefined;

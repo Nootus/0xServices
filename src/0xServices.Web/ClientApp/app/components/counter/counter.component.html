@@ -1,7 +1,3 @@
-<render-section target="layout">
-    From Counter
-</render-section>
-
 <h1>Counter</h1>
 
 <p>This is a simple example of an Angular component.</p>
@@ -9,3 +5,11 @@
 <p>Current count: <strong>{{ currentCount }}</strong></p>
 
 <button (click)="incrementCounter()">Increment</button>
+
+<render-section target="layout">
+    From Counter bottom
+</render-section>
+
+<render-section target="menu" hidden="true">
+    Menu replaced
+</render-section>

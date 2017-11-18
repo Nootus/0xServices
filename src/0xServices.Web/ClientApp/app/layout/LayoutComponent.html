@@ -1,14 +1,19 @@
 ﻿<top-bar></top-bar>
-<render-section name="layout">
-    This is coming from section: {{testvar}}
-    <br /> In Content
-</render-section>
 <div fxLayout="row">
-    <div fxFlex="25">
+    <render-section name="menu" fxFlex="25" *ngIf="false">
         <b>Menu</b> <br />
         <a routerLink="/home">Home</a> <br />
         <a routerLink="/counter">Counter</a> <br />
-    </div>
+        <a routerLink="/fetch-data">Fetch Data</a> <br />
+
+        <render-section name="layout">
+            From Layout - Layout
+        </render-section>
+        <br />
+        <render-section name="test">
+            From Layout - Test
+        </render-section>
+    </render-section>
     <div fxFlex>
         <render-body></render-body>
     </div>

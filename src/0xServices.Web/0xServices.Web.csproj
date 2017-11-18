@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderBodyComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\render\SectionModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderSectionComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabricModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderService.ts" />

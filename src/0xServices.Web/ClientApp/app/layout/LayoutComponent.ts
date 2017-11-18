@@ -7,4 +7,5 @@
 })
 export class LayoutComponent {
     testvar: string = "Temp variable";
+    hideNow: boolean = false;
 }
