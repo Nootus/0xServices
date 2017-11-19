@@ -1,6 +1,6 @@
 ﻿<top-bar></top-bar>
 <div fxLayout="row">
-    <render-section name="menu" fxFlex="25" *ngIf="false">
+    <render-section name="menu" fxFlex="25">
         <b>Menu</b> <br />
         <a routerLink="/home">Home</a> <br />
         <a routerLink="/counter">Counter</a> <br />
@@ -10,7 +10,7 @@
             From Layout - Layout
         </render-section>
         <br />
-        <render-section name="test">
+        <render-section name="test" [hidden]="true">
             From Layout - Test
         </render-section>
     </render-section>

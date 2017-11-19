@@ -11,13 +11,15 @@ export class RenderSectionComponent implements AfterContentInit, OnDestroy  {
     @ViewChild("sectionRef") template: TemplateRef<any>;
     @Input() name: string;
     @Input() target: string;
-    @Input() hidden: string;
+    @Input() hidden: boolean;
 
     constructor(public service: RenderService, private changeDetectorRef: ChangeDetectorRef) {
     }
 
     ngAfterContentInit() {
-        this.service.push(this.name, this.target, this.template, this.changeDetectorRef);
+        this.service.push(this.name, this.target, this.hidden, this.template, this.changeDetectorRef);
+        // this.template.elementRef.nativeElement.parentElement.style.display = "none";
+
     }
 
     ngOnDestroy() {
