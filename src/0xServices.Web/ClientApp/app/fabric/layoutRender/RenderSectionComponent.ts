@@ -5,7 +5,10 @@ import { RenderService } from "./RenderService";
 
 @Component({
     selector: "render-section",
-    templateUrl: "./RenderSectionComponent.html"
+    template: `<ng-container *ngTemplateOutlet="getTemplate()"></ng-container>
+<ng-template #sectionRef>
+    <ng-content></ng-content>
+</ng-template>`
 })
 export class RenderSectionComponent implements AfterContentInit, OnDestroy  {
     @ViewChild("sectionRef") template: TemplateRef<any>;
@@ -18,8 +21,6 @@ export class RenderSectionComponent implements AfterContentInit, OnDestroy  {
 
     ngAfterContentInit() {
         this.service.push(this.name, this.target, this.hidden, this.template, this.changeDetectorRef);
-        // this.template.elementRef.nativeElement.parentElement.style.display = "none";
-
     }
 
     ngOnDestroy() {

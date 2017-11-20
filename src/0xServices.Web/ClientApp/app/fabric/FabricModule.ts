@@ -3,27 +3,22 @@ import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from "@angular/router";
 
-import { RenderBodyComponent } from "./render/RenderBodyComponent";
-import { RenderSectionComponent } from "./render/RenderSectionComponent";
-import { RenderService } from "./render/RenderService";
+import { LayoutRenderModule } from "./layoutRender/LayoutRenderModule";
 
 @NgModule({
     declarations: [
-        RenderBodyComponent,
-        RenderSectionComponent
     ],
     imports: [
         CommonModule,
         FlexLayoutModule,
-        RouterModule
+        RouterModule,
+        LayoutRenderModule
     ],
     exports: [
         RouterModule,
-        RenderBodyComponent,
-        RenderSectionComponent
+        LayoutRenderModule
     ],
     providers: [
-        RenderService
     ]
 })
 export class FabricModule {

@@ -16,6 +16,7 @@ export class RenderService {
         if (name !== undefined) {
             if (this.sections[name] == undefined) {
                 this.sections[name] = <SectionModel>{ name: name, hidden: hidden, changeDetectorRef: changeDetectorRef, targets: [<SectionTargetModel>{ target: name, hidden: hidden, template: template } ], template: template, currentTemplate: template };
+                this.sectionUpdate(this.sections[name]);
             }
             else {
                 this.pushTemplate(name, hidden, template);
@@ -59,13 +60,11 @@ export class RenderService {
 
         let targetSection = section.targets[section.targets.length - 1];
         section.currentTemplate = targetSection.template;
-        section.currentTemplate.elementRef.nativeElement.parentElement.style.display = "none";
         if (targetSection.hidden) {
-            // alert(section.name + " -- " + targetSection.target);
             section.template.elementRef.nativeElement.parentElement.style.display = "none";
         }
         if (!targetSection.hidden) {
-            section.currentTemplate.elementRef.nativeElement.parentElement.style.display = "block";
+            section.template.elementRef.nativeElement.parentElement.style.display = "block";
         }
 
         // the below checking is needed for hot module replacement

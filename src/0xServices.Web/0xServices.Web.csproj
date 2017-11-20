@@ -22,10 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\fabric\render\RenderBodyComponent.ts" />
-    <None Remove="ClientApp\app\fabric\render\RenderSectionComponent.ts" />
+    <None Remove="ClientApp\app\fabric\layoutRender\LayoutRenderModule.ts" />
+    <None Remove="ClientApp\app\fabric\layoutRender\RenderBodyComponent.ts" />
+    <None Remove="ClientApp\app\fabric\layoutRender\RenderSectionComponent.ts" />
     <None Remove="ClientApp\app\fabric\RenderService.ts" />
-    <None Remove="ClientApp\app\fabric\render\SectionTargetModel.ts" />
+    <None Remove="ClientApp\app\fabric\layoutRender\SectionTargetModel.ts" />
     <None Remove="ClientApp\app\fabric\Session.ts" />
   </ItemGroup>
 
@@ -34,12 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderBodyComponent.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\render\SectionModel.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderSectionComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\LayoutRenderModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\RenderBodyComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\SectionModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\RenderSectionComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabricModule.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\render\RenderService.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\render\SectionTargetModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\RenderService.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\layoutRender\SectionTargetModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\Session.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\LayoutComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\LayoutModule.ts" />

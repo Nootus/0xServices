@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'render-body',
-    templateUrl: './RenderBodyComponent.html'
+    template: '<router-outlet></router-outlet>'
 })
 export class RenderBodyComponent {
 }
