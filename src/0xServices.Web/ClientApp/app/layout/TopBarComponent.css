@@ -5,6 +5,7 @@
     background-color: #202428;
     font-size: 13px;
 }
+
 .top-bar-title {
     color: #00bcf2;
     width: 160px;
@@ -13,3 +14,22 @@
     height: 100%;
     line-height: 40px;
 }
+
+.top-bar-menu {
+    border-left: 1px solid rgba(128,128,128,.4);
+    color: white;
+    min-width: 40px;
+}
+
+.top-bar-button .top-bar-button-icon {
+    font-size: 25px;
+}
+
+.top-bar-button-icon {
+}
+
+.top-bar-button:hover .top-bar-button-icon {
+    font-size: 28px;
+    margin-left: -3px;
+}
+

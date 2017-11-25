@@ -1,3 +1,4 @@
 ﻿:host::ng-deep .has-hover:hover {
-    color: red;
+    background-color: #53575b;
 }
+
