@@ -22,7 +22,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\fabric\account\AccountModule.ts" />
+    <None Remove="ClientApp\app\fabric\account\models\ClaimModel.ts" />
+    <None Remove="ClientApp\app\fabric\account\models\CompanyModel.ts" />
+    <None Remove="ClientApp\app\fabric\account\models\MenuModel.ts" />
+    <None Remove="ClientApp\app\fabric\account\models\ProfileModel.ts" />
+    <None Remove="ClientApp\app\fabric\account\Profile.ts" />
+    <None Remove="ClientApp\app\fabric\button\ButtonModule.ts" />
+    <None Remove="ClientApp\app\fabric\FabHttpInterceptor.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web\Nootus.Fabric.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\models\ClaimModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\models\CompanyModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\models\MenuModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\models\ProfileModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\Profile.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonIconComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\CoreModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\FabHttpInterceptor.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

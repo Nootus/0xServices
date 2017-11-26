@@ -1,7 +1,7 @@
 ﻿import { Injectable, TemplateRef, ChangeDetectorRef, ViewRef } from "@angular/core";
 
-import { SectionModel } from "./SectionModel";
-import { SectionTargetModel } from "./SectionTargetModel";
+import { SectionModel } from "./models/SectionModel";
+import { SectionTargetModel } from "./models/SectionTargetModel";
 
 @Injectable()
 export class RenderService {

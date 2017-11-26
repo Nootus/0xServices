@@ -7,20 +7,20 @@ import { RenderSectionComponent } from "./RenderSectionComponent";
 import { RenderService } from "./RenderService";
 
 @NgModule({
-    declarations: [
-        RenderBodyComponent,
-        RenderSectionComponent
-    ],
     imports: [
         CommonModule,
         RouterModule
     ],
-    exports: [
+    declarations: [
         RenderBodyComponent,
         RenderSectionComponent
     ],
     providers: [
         RenderService
+    ],
+    exports: [
+        RenderBodyComponent,
+        RenderSectionComponent
     ]
 })
 export class LayoutRenderModule {

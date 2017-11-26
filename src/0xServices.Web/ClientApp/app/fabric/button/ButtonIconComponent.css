@@ -1,0 +1,11 @@
+﻿.button .button-icon {
+    min-width: 40px;
+    font-size: 25px;
+}
+
+.button-icon {
+}
+
+.button:hover .button-icon {
+    font-size: 28px;
+}

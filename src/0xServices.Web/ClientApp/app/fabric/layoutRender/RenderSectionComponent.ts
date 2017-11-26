@@ -1,4 +1,4 @@
-﻿import { Component, ViewChild, TemplateRef, ViewContainerRef, AfterContentInit, OnDestroy } from "@angular/core";
+﻿import { Component, ViewChild, TemplateRef, AfterContentInit, OnDestroy } from "@angular/core";
 import { Input, ChangeDetectorRef } from "@angular/core";
 
 import { RenderService } from "./RenderService";

@@ -1,9 +1,25 @@
 ﻿<div class="top-bar" fxLayout="row" fxLayoutAlign="start center">
     <div class="top-bar-title has-hover">0x Services</div>
-    
-    <div class="top-bar-menu">
-        <button mat-icon-button class="top-bar-button has-hover">
-            <mat-icon class="top-bar-button-icon">exit_to_app</mat-icon>
-        </button>
+    <div fxFlex></div>
+    <div fxLayout="row" *ngIf="true">
+        <button-icon class="top-bar-item" tooltip="Change Password">lock_open</button-icon>
+        <button-icon class="top-bar-item" tooltip="Sign out">exit_to_app</button-icon>
+        <div class="avatar top-bar-item has-hover" fxLayout="row">
+            <div>
+                <div class="avatar-name">Prasanna Pattam</div>
+                <div class="avatar-username">Prasanna</div>
+            </div>
+            <img class="avatar-image" alt="" src="/images/Prasanna_Pattam.jpg">
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="top-bar-item has-hover">
+            <img class="sign-register" src="/images/Register.png" />
+        </div>
+        <div class="top-bar-item has-hover">
+            <button mat-button>
+                <img class="sign-register" src="/images/Signin.png" />
+            </button>
+        </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatIconModule, MatButtonModule } from "@angular/material";
+import { MatButtonModule } from "@angular/material";
 
 import { FabricModule } from "../fabric/FabricModule";
 
@@ -12,16 +12,16 @@ import { LayoutComponent } from "./LayoutComponent";
     imports: [
         CommonModule,
         FlexLayoutModule,
-        MatIconModule,
         MatButtonModule,
+
         FabricModule
-    ],
-    exports: [
-        LayoutComponent
     ],
     declarations: [
         LayoutComponent,
         TopBarComponent
+    ],
+    exports: [
+        LayoutComponent
     ]
 })
 export class LayoutModule {
