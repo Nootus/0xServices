@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { AccountService } from "../fabric/account/AccountService";
 
 @Component({
     selector: 'layout',
@@ -8,4 +9,11 @@
 export class LayoutComponent {
     testvar: string = "Temp variable";
     hideNow: boolean = false;
+
+    constructor(private accountService: AccountService) {
+    }
+
+    testClick() {
+        this.accountService.get();
+    }
 }

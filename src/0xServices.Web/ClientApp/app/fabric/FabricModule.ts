@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { LayoutRenderModule } from "./layoutRender/LayoutRenderModule";
 import { ButtonModule } from "./button/ButtonModule";
+import { AccountModule } from "./account/AccountModule";
+import { NotificationModule } from "./notification/NotificationModule";
 
 import { FabHttpInterceptor } from "./FabHttpInterceptor";
 
@@ -21,13 +23,18 @@ import { FabHttpInterceptor } from "./FabHttpInterceptor";
         HttpClientModule,
 
         LayoutRenderModule,
-        ButtonModule
+        ButtonModule,
+        AccountModule,
+        NotificationModule
     ],
     exports: [
         RouterModule,
         HttpClientModule,
+
         LayoutRenderModule,
-        ButtonModule
+        ButtonModule,
+        AccountModule,
+        NotificationModule
     ],
     providers: [
         {
