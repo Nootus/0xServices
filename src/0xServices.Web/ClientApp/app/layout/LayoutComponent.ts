@@ -1,19 +1,21 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component } from "@angular/core";
 import { AccountService } from "../fabric/account/AccountService";
+import { SnackBar } from "../fabric/notification/SnackBar";
 
 @Component({
-    selector: 'layout',
-    templateUrl: './LayoutComponent.html',
-    styleUrls: ['./LayoutComponent.css']
+    selector: "layout",
+    templateUrl: "./LayoutComponent.html",
+    styleUrls: ["./LayoutComponent.css"]
 })
 export class LayoutComponent {
     testvar: string = "Temp variable";
     hideNow: boolean = false;
 
-    constructor(private accountService: AccountService) {
+    constructor(private accountService: AccountService, private snackBar: SnackBar) {
     }
 
     testClick() {
-        this.accountService.get();
+        this.snackBar.showError("This is error");
+        // this.accountService.get();
     }
 }

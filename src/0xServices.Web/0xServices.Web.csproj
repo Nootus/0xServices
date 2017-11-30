@@ -33,8 +33,11 @@
     <None Remove="ClientApp\app\fabric\account\Profile.ts" />
     <None Remove="ClientApp\app\fabric\button\ButtonModule.ts" />
     <None Remove="ClientApp\app\fabric\FabHttpInterceptor.ts" />
+    <None Remove="ClientApp\app\fabric\notification\models\SnackBarMessageType.ts" />
+    <None Remove="ClientApp\app\fabric\notification\models\SnackBarModel.ts" />
     <None Remove="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBar.ts" />
+    <None Remove="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,8 +58,11 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\CoreModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabHttpInterceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\notification\models\SnackBarMessageType.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\notification\models\SnackBarModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBar.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

@@ -1,7 +1,7 @@
-﻿import { Injectable, Inject } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpResponse } from '@angular/common/http';
+﻿import { Injectable, Inject } from "@angular/core";
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/map";
 
 import { Profile } from "./account/Profile";
 import { ProfileModel } from "./account/models/ProfileModel";
@@ -9,13 +9,13 @@ import { ProfileModel } from "./account/models/ProfileModel";
 @Injectable()
 export class FabHttpInterceptor implements HttpInterceptor {
 
-    private rawApiUrl: string = '/api/';
+    private rawApiUrl: string = "/api/";
     private apiUrl: string;
 
 
-    constructor(private profile: Profile, @Inject('BASE_URL') private baseUrl: string) {
+    constructor(private profile: Profile, @Inject("BASE_URL") private baseUrl: string) {
         this.baseUrl = baseUrl.charAt(baseUrl.length - 1) === "/" ? baseUrl.substr(0, baseUrl.length - 1) : baseUrl;
-        this.apiUrl = this.baseUrl + '/api/'
+        this.apiUrl = this.baseUrl + "/api/"
     }
 
 
