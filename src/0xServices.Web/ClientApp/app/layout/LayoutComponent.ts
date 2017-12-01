@@ -15,7 +15,7 @@ export class LayoutComponent {
     }
 
     testClick() {
-        this.snackBar.showError("This is error");
+        this.snackBar.showMessage("This is Message", 0);
         // this.accountService.get();
     }
 }

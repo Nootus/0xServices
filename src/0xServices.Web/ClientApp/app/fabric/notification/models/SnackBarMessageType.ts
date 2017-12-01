@@ -1,4 +1,6 @@
-﻿export declare enum SnackBarMessageType {
+﻿export enum SnackBarMessageType {
     error = 0,
-    info = 1
+    warning = 1,
+    success = 2,
+    info = 3
 }
