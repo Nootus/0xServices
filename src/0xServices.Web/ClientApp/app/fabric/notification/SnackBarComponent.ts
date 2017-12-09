@@ -13,7 +13,7 @@ export class SnackBarComponent implements OnInit {
     cssClass: string;
     iconClass: string;
 
-    constructor( @Inject(MAT_SNACK_BAR_DATA) public data: SnackBarModel) { }
+    constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarModel) { }
 
     ngOnInit(): void {
         switch (this.data.messageType) {
