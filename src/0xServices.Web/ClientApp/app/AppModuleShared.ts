@@ -9,6 +9,7 @@ import { FabricModule } from "./fabric/FabricModule";
 import { LayoutModule } from "./layout/LayoutModule";
 
 import { AppComponent } from "./AppComponent";
+import { AppStyles } from "./AppStyles";
 
 import { HomeComponent } from "./components/home/home.component";
 import { FetchDataComponent } from "./components/fetchdata/fetchdata.component";
@@ -17,6 +18,7 @@ import { CounterComponent } from "./components/counter/counter.component";
 @NgModule({
     declarations: [
         AppComponent,
+        AppStyles,
         CounterComponent,
         FetchDataComponent,
         HomeComponent

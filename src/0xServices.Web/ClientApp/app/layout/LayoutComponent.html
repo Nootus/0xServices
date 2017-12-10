@@ -6,7 +6,13 @@
         <a routerLink="/counter">Counter</a> <br />
         <a routerLink="/fetch-data">Fetch Data</a> <br />
         <br />
-        <button type="button" mat-button (click)="testClick()">Click me!</button>
+        <button type="button" mat-button (click)="testClick(0)">Error!</button>
+        <br />
+        <button type="button" mat-button (click)="testClick(1)">warning</button>
+        <br />
+        <button type="button" mat-button (click)="testClick(2)">success</button>
+        <br />
+        <button type="button" mat-button (click)="testClick(3)">info</button>
         <br />
         <render-section name="layout">
             From Layout - Layout

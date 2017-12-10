@@ -14,8 +14,8 @@ export class LayoutComponent {
     constructor(private accountService: AccountService, private snackBar: SnackBar) {
     }
 
-    testClick() {
-        this.snackBar.showMessage("This is Message", 0);
+    testClick(messageType: number) {
+        this.snackBar.showMessage("This is Message", messageType);
         // this.accountService.get();
     }
 }
