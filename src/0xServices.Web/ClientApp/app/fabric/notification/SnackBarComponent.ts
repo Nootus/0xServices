@@ -10,7 +10,6 @@ import { SnackBarMessageType } from "./models/SnackBarMessageType";
     encapsulation: ViewEncapsulation.None
 })
 export class SnackBarComponent implements OnInit {
-    // @Input() data: SnackBarModel;
     iconClass: string;
 
     constructor(@Inject(MAT_SNACK_BAR_DATA) public data: SnackBarModel) { }
