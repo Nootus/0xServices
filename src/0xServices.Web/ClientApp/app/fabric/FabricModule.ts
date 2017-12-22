@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { HTTP_INTERCEPTORS } from "@angular/common/http"
 
-import { LayoutRenderModule } from "./layoutRender/LayoutRenderModule";
+import { LayoutModule } from "./layoutRender/LayoutModule";
 import { ButtonModule } from "./button/ButtonModule";
 import { AccountModule } from "./account/AccountModule";
 import { NotificationModule } from "./notification/NotificationModule";
@@ -22,7 +22,7 @@ import { FabHttpInterceptor } from "./FabHttpInterceptor";
         RouterModule,
         HttpClientModule,
 
-        LayoutRenderModule,
+        LayoutModule,
         ButtonModule,
         AccountModule,
         NotificationModule
@@ -31,7 +31,7 @@ import { FabHttpInterceptor } from "./FabHttpInterceptor";
         RouterModule,
         HttpClientModule,
 
-        LayoutRenderModule,
+        LayoutModule,
         ButtonModule,
         AccountModule,
         NotificationModule

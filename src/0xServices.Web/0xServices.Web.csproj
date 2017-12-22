@@ -39,6 +39,8 @@
     <None Remove="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBar.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
+    <None Remove="ClientApp\app\user\UserDialogService.ts" />
+    <None Remove="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +67,9 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBar.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user\SignInDialogComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user\UserDialogService.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

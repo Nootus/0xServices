@@ -23,5 +23,5 @@ import { RenderService } from "./RenderService";
         RenderSectionComponent
     ]
 })
-export class LayoutRenderModule {
+export class LayoutModule {
 }
