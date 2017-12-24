@@ -1,1 +1,15 @@
-﻿
+﻿.dialog {
+    min-width: 600px;
+    max-width: 95%;
+    overflow: hidden;
+}
+
+.dialog > .mat-dialog-container {
+    padding: 0 0 20px 0;
+    overflow: hidden;
+    background-color: #282d32;
+}
+
+/*.dialog-bar {
+    background-color: #282d32;
+}*/

@@ -1,4 +1,4 @@
-﻿import { Component, Inject, Input, OnInit, ViewEncapsulation } from "@angular/core";
+﻿import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 import { MAT_SNACK_BAR_DATA } from '@angular/material';
 import { SnackBarModel } from "./models/SnackBarModel";
 import { SnackBarMessageType } from "./models/SnackBarMessageType";
@@ -6,8 +6,7 @@ import { SnackBarMessageType } from "./models/SnackBarMessageType";
 @Component({
     selector: "fab-snack-bar",
     templateUrl: "./SnackBarComponent.html",
-    styleUrls: ["./SnackBarComponent.css"],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ["./SnackBarComponent.css"]
 })
 export class SnackBarComponent implements OnInit {
     iconClass: string;

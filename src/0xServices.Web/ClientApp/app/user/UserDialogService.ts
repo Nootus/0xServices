@@ -11,10 +11,12 @@ export class UserDialogService {
     }
 
     signIn() : void {
-        let dialogRef: MatDialogRef<SignInDialogComponent> = this.dialog.open(SignInDialogComponent);
+        let dialogRef: MatDialogRef<SignInDialogComponent> = this.dialog.open(SignInDialogComponent, {
+            panelClass: "dialog"
+        });
 
         dialogRef.afterClosed().subscribe(result => {
-            alert(result);
+            //  alert(result);
         });
     }
 }

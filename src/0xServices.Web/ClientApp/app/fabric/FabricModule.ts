@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { HTTP_INTERCEPTORS } from "@angular/common/http"
 
-import { LayoutModule } from "./layoutRender/LayoutModule";
+import { LayoutModule } from "./layout/LayoutModule";
 import { ButtonModule } from "./button/ButtonModule";
 import { AccountModule } from "./account/AccountModule";
 import { NotificationModule } from "./notification/NotificationModule";
