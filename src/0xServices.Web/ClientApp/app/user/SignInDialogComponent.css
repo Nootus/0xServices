@@ -1,15 +1,33 @@
 ﻿.dialog {
     min-width: 600px;
     max-width: 95%;
-    overflow: hidden;
 }
 
 .dialog > .mat-dialog-container {
-    padding: 0 0 20px 0;
-    overflow: hidden;
     background-color: #282d32;
+    padding-top: 0;
 }
 
-/*.dialog-bar {
-    background-color: #282d32;
-}*/
+.dialog-bar {
+    min-height: 46px;
+    height: 46px !important;
+    background-color: rgba(67, 116, 167, 0.25);
+    color: white;
+    display: block;
+    width: auto !important;
+    margin: 0 -24px;
+}
+
+.dialog-header {
+    flex: 1 1 auto;
+}
+
+.dialog-bar-buttons {
+    margin: -11px -16px 0 0px;
+}
+
+.dialog-content {
+    background-color: #ddd;
+}
+
+

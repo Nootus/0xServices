@@ -1,6 +1,8 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MatDialogModule } from "@angular/material"
+import { MatDialogModule, MatToolbarModule } from "@angular/material"
+
+import { FabricModule } from "../fabric/FabricModule";
 
 import { SignInDialogComponent } from "./SignInDialogComponent";
 import { UserDialogService } from "./UserDialogService";
@@ -11,7 +13,9 @@ import { UserDialogService } from "./UserDialogService";
     ],
     imports: [
         CommonModule,
-        MatDialogModule
+        MatDialogModule,
+        MatToolbarModule,
+        FabricModule
     ],
     providers: [
         UserDialogService

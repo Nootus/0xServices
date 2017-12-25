@@ -25,3 +25,7 @@ body {
     display: table;
     margin: 0 auto;
 }
+
+.has-hover:hover {
+    background-color: #53575b;
+}

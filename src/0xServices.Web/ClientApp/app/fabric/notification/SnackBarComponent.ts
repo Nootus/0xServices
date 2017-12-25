@@ -6,7 +6,8 @@ import { SnackBarMessageType } from "./models/SnackBarMessageType";
 @Component({
     selector: "fab-snack-bar",
     templateUrl: "./SnackBarComponent.html",
-    styleUrls: ["./SnackBarComponent.css"]
+    styleUrls: ["./SnackBarComponent.css"],
+    encapsulation: ViewEncapsulation.None
 })
 export class SnackBarComponent implements OnInit {
     iconClass: string;

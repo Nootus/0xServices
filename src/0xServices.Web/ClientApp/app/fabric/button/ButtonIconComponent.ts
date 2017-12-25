@@ -6,5 +6,6 @@
     styleUrls: ["./ButtonIconComponent.css"]
 })
 export class ButtonIconComponent {
-    @Input() tooltip: string
+    @Input() tooltip: string;
+    @Input() tabIndex: number = -1;
 }
