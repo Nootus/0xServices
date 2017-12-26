@@ -1,4 +1,4 @@
-﻿import { Component, Input } from "@angular/core";
+﻿import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
     selector: "button-icon",
@@ -8,4 +8,9 @@
 export class ButtonIconComponent {
     @Input() tooltip: string;
     @Input() tabIndex: number = -1;
+    @Output() click: EventEmitter<MouseEvent>
+
+    onClick(event: MouseEvent): void {
+        alert("clicked");
+    }
 }
