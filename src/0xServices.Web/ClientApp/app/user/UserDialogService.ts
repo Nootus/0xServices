@@ -12,7 +12,7 @@ export class UserDialogService {
 
     signIn() : void {
         let dialogRef: MatDialogRef<SignInDialogComponent> = this.dialog.open(SignInDialogComponent, {
-            panelClass: "dialog"
+            panelClass: "sign-in-dialog"
         });
 
         dialogRef.afterClosed().subscribe(result => {

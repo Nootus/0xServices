@@ -8,9 +8,9 @@
 export class ButtonIconComponent {
     @Input() tooltip: string;
     @Input() tabIndex: number = -1;
-    @Output() click: EventEmitter<MouseEvent>
+    @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     onClick(event: MouseEvent): void {
-        alert("clicked");
+        this.click.emit(event);
     }
 }

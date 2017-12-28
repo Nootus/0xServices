@@ -30,6 +30,7 @@ import { FabHttpInterceptor } from "./FabHttpInterceptor";
     exports: [
         RouterModule,
         HttpClientModule,
+        FlexLayoutModule,
 
         LayoutModule,
         ButtonModule,

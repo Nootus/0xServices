@@ -1,12 +1,29 @@
-﻿.dialog {
+﻿.header-block {
+    background-color: #00bcf2;
+}
+
+.sign-in-dialog {
+    width: 400px;
+    height: 300px;
     min-width: 600px;
     max-width: 95%;
 }
 
-.dialog > .mat-dialog-container {
-    background-color: #282d32;
-    padding-top: 0;
+.sign-in-dialog > .mat-dialog-container {
+    padding: 0;
 }
+
+.dialog-content {
+    height: 100%;
+}
+
+.sign-in-header {
+    padding-top: 30px;
+    font-size: 14pt;
+    color: white;
+}
+
+
 
 .dialog-bar {
     min-height: 46px;
