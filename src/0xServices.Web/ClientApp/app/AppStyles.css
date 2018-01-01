@@ -11,7 +11,6 @@ body {
     margin: 0 auto;
     padding: 0;
     font-family: "Roboto", Verdana, Helvetica, sans-serif;
-    font-size: 0.85em !important;
     height: 100%;
     overflow: hidden !important;
 }
@@ -28,4 +27,5 @@ body {
 
 .has-hover:hover {
     background-color: #53575b;
+    color: #00bcf2;
 }

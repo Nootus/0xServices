@@ -1,8 +1,4 @@
-﻿.header-block {
-    background-color: #00bcf2;
-}
-
-.sign-in-dialog {
+﻿.sign-in-dialog {
     width: 400px;
     height: 300px;
     min-width: 600px;
@@ -10,41 +6,38 @@
 }
 
 .sign-in-dialog > .mat-dialog-container {
+    background-color: #282d32;
     padding: 0;
 }
 
-.dialog-content {
+.dialog {
     height: 100%;
 }
 
-.sign-in-header {
-    padding-top: 30px;
-    font-size: 14pt;
-    color: white;
+.header-section {
+    background-color: rgb(67, 116, 167);
 }
 
-
-
-.dialog-bar {
-    min-height: 46px;
-    height: 46px !important;
-    background-color: rgba(67, 116, 167, 0.25);
-    color: white;
-    display: block;
-    width: auto !important;
-    margin: 0 -24px;
-}
-
-.dialog-header {
-    flex: 1 1 auto;
-}
-
-.dialog-bar-buttons {
-    margin: -11px -16px 0 0px;
-}
-
-.dialog-content {
+.content {
+    padding: 20px;
     background-color: #ddd;
+    height: 100%;
 }
 
+.header-image {
+    width: 150px;
+    height: 123px;
+    background: url(SignIn.svg);
+    background-size: 150px 123px;
+}
 
+.header {
+    padding: 10px;
+    font-size: 18pt;
+    color: white;
+}
+
+.login-button {
+    background-color: rgb(67, 116, 167);
+    color: white;
+}

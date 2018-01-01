@@ -1,6 +1,6 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MatDialogModule, MatToolbarModule } from "@angular/material"
+import { MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule } from "@angular/material"
 
 import { FabricModule } from "../fabric/FabricModule";
 
@@ -13,8 +13,7 @@ import { UserDialogService } from "./UserDialogService";
     ],
     imports: [
         CommonModule,
-        MatDialogModule,
-        MatToolbarModule,
+        MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule,
         FabricModule
     ],
     providers: [
