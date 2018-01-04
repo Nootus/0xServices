@@ -1,17 +1,26 @@
 ﻿<div fxLayout="row" class="dialog">
-    <div fxFlex="30" fxLayout="column" class="header-section" fxLayoutAlign="center center">
-        <span class="header-image"></span>
-        <span class="header">Login</span>
-    </div>
-    <div fxFlex class="content" fxLayoutAlign="center center">
-        <div fxLayout="column" >
-            <mat-form-field>
-                <input matInput placeholder="User Name" type="text">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Password" type="password">
-            </mat-form-field>
-            <button mat-raised-button class="login-button">Login</button>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="validate()" novalidate>
+        <div fxFlex="30" fxLayout="column" class="header-section" fxLayoutAlign="center center">
+            <span class="header-image"></span>
+            <span class="header">Login</span>
         </div>
-    </div>
+        <div fxFlex class="content" fxLayoutAlign="center center">
+            <div fxLayout="column">
+                <mat-form-field hintLabel="Enter email address">
+                    <input matInput placeholder="User Name" type="text" formControlName="userName">
+                    <mat-error *ngIf="loginForm.controls.userName.invalid">{{getErrorMessage(loginForm.controls.userName)}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" formControlName="userPassword">
+                    <mat-error *ngIf="loginForm.controls.userPassword.invalid">{{getErrorMessage(loginForm.controls.userPassword)}}</mat-error>
+                </mat-form-field>
+                <button type="submit" mat-raised-button class="login-button">Login</button>
+            </div>
+        </div>
+        <div class="close-section">
+            <button-icon class="close-icon" tooltip="Close" (click)="close()">close</button-icon>
+        </div>
+    </form>
 </div>
+
+<!--https://toddmotto.com/reactive-formgroup-validation-angular-2-->

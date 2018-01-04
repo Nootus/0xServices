@@ -7,6 +7,7 @@
 })
 export class ButtonIconComponent {
     @Input() tooltip: string;
+    @Input() type: string = "button";
     @Input() tabIndex: number = -1;
     @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 

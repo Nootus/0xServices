@@ -1,8 +1,10 @@
 ﻿import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule } from "@angular/material"
 
 import { FabricModule } from "../fabric/FabricModule";
+import { CoreModule } from "../core/CoreModule";
 
 import { SignInDialogComponent } from "./SignInDialogComponent";
 import { UserDialogService } from "./UserDialogService";
@@ -13,8 +15,10 @@ import { UserDialogService } from "./UserDialogService";
     ],
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        FabricModule
+        FabricModule,
+        CoreModule
     ],
     providers: [
         UserDialogService
