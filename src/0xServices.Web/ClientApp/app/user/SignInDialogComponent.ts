@@ -12,6 +12,9 @@ import { ValidationMessage } from "../core/messages/ValidationMessage";
 })
 export class SignInDialogComponent {
     loginForm: FormGroup;
+    showError: boolean = false;
+    errorMessage: string = "Checking with error";
+
     constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<SignInDialogComponent>, private messages: ValidationMessage) {
         this.loginForm = fb.group({
             userName: ["", [Validators.required, Validators.email]],
@@ -24,6 +27,7 @@ export class SignInDialogComponent {
     }
 
     validate() {
+        this.showError = true;
         if (this.loginForm.valid) {
             alert("validated");
         }

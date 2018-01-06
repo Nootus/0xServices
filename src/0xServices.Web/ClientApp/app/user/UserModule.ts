@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule } from "@angular/material"
 
 import { FabricModule } from "../fabric/FabricModule";
-import { CoreModule } from "../core/CoreModule";
+import { ControlModule } from "../core/controls/ControlModule";
 
 import { SignInDialogComponent } from "./SignInDialogComponent";
 import { UserDialogService } from "./UserDialogService";
@@ -18,7 +18,7 @@ import { UserDialogService } from "./UserDialogService";
         ReactiveFormsModule,
         MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule,
         FabricModule,
-        CoreModule
+        ControlModule
     ],
     providers: [
         UserDialogService

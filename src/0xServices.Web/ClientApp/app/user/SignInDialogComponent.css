@@ -49,3 +49,11 @@
     background-color: #ddd;
     color: rgb(67, 116, 167);
 }
+
+.nt-input {
+    padding: 0px 0px 20px 0px;
+}
+
+.error {
+    color: red;
+}

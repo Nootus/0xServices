@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\AppStyles.ts" />
+    <None Remove="ClientApp\app\core\controls\ControlModule.ts" />
+    <None Remove="ClientApp\app\core\controls\NtInputComponent.ts" />
     <None Remove="ClientApp\app\core\messages\MessageModule.ts" />
     <None Remove="ClientApp\app\core\messages\ValidationMessage.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountModule.ts" />
@@ -51,6 +53,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\AppStyles.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\ControlModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\NtInputComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\messages\MessageModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\messages\ValidationMessage.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountModule.ts" />
