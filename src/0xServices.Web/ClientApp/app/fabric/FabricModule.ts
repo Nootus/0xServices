@@ -12,6 +12,7 @@ import { AccountModule } from "./account/AccountModule";
 import { NotificationModule } from "./notification/NotificationModule";
 
 import { FabHttpInterceptor } from "./FabHttpInterceptor";
+import { Message } from "./Message";
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { FabHttpInterceptor } from "./FabHttpInterceptor";
             provide: HTTP_INTERCEPTORS,
             useClass: FabHttpInterceptor,
             multi: true
-        }
+        },
+        Message
     ]
 })
 export class FabricModule {

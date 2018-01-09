@@ -4,13 +4,25 @@ import { SnackBarComponent } from "./SnackBarComponent";
 import { SnackBarMessageType } from "./models/SnackBarMessageType";
 
 @Injectable()
-export class SnackBar {
-    duration: number = 200000;
+export class SnackBarService {
+    duration: number = 3000;
 
     constructor(private matSnackBar: MatSnackBar) { }
 
     public showError(message: string): void {
         this.showMessage(message, SnackBarMessageType.error);
+    }
+
+    public showWarning(message: string): void {
+        this.showMessage(message, SnackBarMessageType.warning);
+    }
+
+    public showSuccess(message: string): void {
+        this.showMessage(message, SnackBarMessageType.success);
+    }
+
+    public showInfo(message: string): void {
+        this.showMessage(message, SnackBarMessageType.info);
     }
 
     public showMessage(message: string, messageType: SnackBarMessageType): void {

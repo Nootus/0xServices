@@ -6,12 +6,12 @@ import { MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule } 
 import { FabricModule } from "../fabric/FabricModule";
 import { ControlModule } from "../core/controls/ControlModule";
 
-import { SignInDialogComponent } from "./SignInDialogComponent";
+import { LoginDialogComponent } from "./LoginDialogComponent";
 import { UserDialogService } from "./UserDialogService";
 
 @NgModule({
     declarations: [
-        SignInDialogComponent
+        LoginDialogComponent
     ],
     imports: [
         CommonModule,
@@ -26,7 +26,7 @@ import { UserDialogService } from "./UserDialogService";
     exports: [
     ],
     entryComponents: [
-        SignInDialogComponent
+        LoginDialogComponent
     ]
 })
 export class UserModule {

@@ -1,6 +1,6 @@
 ﻿import { Component } from "@angular/core";
 import { AccountService } from "../fabric/account/AccountService";
-import { SnackBar } from "../fabric/notification/SnackBar";
+import { SnackBarService } from "../fabric/notification/SnackBarService";
 
 @Component({
     selector: "layout",
@@ -11,11 +11,11 @@ export class LayoutComponent {
     testvar: string = "Temp variable";
     hideNow: boolean = false;
 
-    constructor(private accountService: AccountService, private snackBar: SnackBar) {
+    constructor(private accountService: AccountService, private snackBarService: SnackBarService) {
     }
 
     testClick(messageType: number) {
-        this.snackBar.showMessage("This is Message", messageType);
+        this.snackBarService.showMessage("This is Message", messageType);
         // this.accountService.get();
     }
 }

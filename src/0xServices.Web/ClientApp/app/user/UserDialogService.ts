@@ -2,7 +2,7 @@
 import { HttpClient } from "@angular/common/http";
 import { MatDialog, MatDialogRef } from "@angular/material"
 
-import { SignInDialogComponent } from "./SignInDialogComponent";
+import { LoginDialogComponent } from "./LoginDialogComponent";
 
 @Injectable()
 export class UserDialogService {
@@ -10,8 +10,8 @@ export class UserDialogService {
     constructor(private dialog: MatDialog) {
     }
 
-    signIn() : void {
-        let dialogRef: MatDialogRef<SignInDialogComponent> = this.dialog.open(SignInDialogComponent, {
+    login() : void {
+        let dialogRef: MatDialogRef<LoginDialogComponent> = this.dialog.open(LoginDialogComponent, {
             panelClass: "sign-in-dialog"
         });
 

@@ -30,7 +30,7 @@
 .header-image {
     width: 150px;
     height: 123px;
-    background: url(SignIn.svg);
+    background: url(Login.svg);
     background-size: 150px 123px;
 }
 

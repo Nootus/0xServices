@@ -11,8 +11,7 @@ export class TopBarComponent {
     constructor(private userDialogService: UserDialogService){
     }
 
-    signIn() {
-        //alert('clicked');
-        this.userDialogService.signIn();
+    login() {
+        this.userDialogService.login();
     }
 }

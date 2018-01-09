@@ -1,10 +1,19 @@
 ﻿import { Injectable, Inject } from "@angular/core";
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
+import "rxjs/add/observable/of";
+import "rxjs/add/observable/empty";
+import "rxjs/add/observable/throw";
 
+import { catchError } from "rxjs/operators/catchError";
+import { switchMap } from "rxjs/operators/switchMap";
+import { filter } from "rxjs/operators/filter";
+
+import { SnackBarService } from "./notification/SnackBarService";
 import { Profile } from "./account/Profile";
 import { ProfileModel } from "./account/models/ProfileModel";
+import { NTException } from "./exception/NtException";
+import { Message } from "./Message";
 
 @Injectable()
 export class FabHttpInterceptor implements HttpInterceptor {
@@ -13,7 +22,10 @@ export class FabHttpInterceptor implements HttpInterceptor {
     private apiUrl: string;
 
 
-    constructor(private profile: Profile, @Inject("BASE_URL") private baseUrl: string) {
+    constructor(private profile: Profile,
+        @Inject("BASE_URL") private baseUrl: string,
+        private snackBarService: SnackBarService,
+        private message: Message) {
         this.baseUrl = baseUrl.charAt(baseUrl.length - 1) === "/" ? baseUrl.substr(0, baseUrl.length - 1) : baseUrl;
         this.apiUrl = this.baseUrl + "/api/"
     }
@@ -31,7 +43,6 @@ export class FabHttpInterceptor implements HttpInterceptor {
         if (url.indexOf(this.apiUrl) === 0) {
             // setting companyid in the header
             if (this.profile.user.companyId !== undefined) {
-                debugger;
                 headers.set("companyId", this.profile.user.companyId.toString());
             }
         }
@@ -39,36 +50,43 @@ export class FabHttpInterceptor implements HttpInterceptor {
         const reqNew = req.clone({ url: url });
         return next
             .handle(reqNew)
-            .map(event => {
-
-                if (event instanceof HttpResponse) {
-                    debugger;
-                    if (event.body.hasOwnProperty("result") && event.body.hasOwnProperty("message") && event.body.hasOwnProperty("model")) {
-                        switch (event.body.result) {
-                            case 1:
-                                // utility.showError(event.body.message);
-                                return event;
-                            case 2: //validation error messages
-                                var exp = { message: event.body.message, errors: event.body.model.data };
-                                //return $q.reject(exp);
-                                return event;
-                            default:
-                                // utility.showInfo(event.body.message);
-                                var data = undefined;
-                                if (event.body.dashboard === null) {
-                                    data = event.body.model;
+            .pipe(
+            filter((event: HttpEvent<any>) => (event instanceof HttpResponse)),
+            switchMap((event: HttpEvent<any>, index: number): Observable<any> => {
+                let response: HttpResponse<any> = event as HttpResponse<any>;
+                if (response.body.hasOwnProperty("result") && response.body.hasOwnProperty("message") && response.body.hasOwnProperty("model")) {
+                    switch (response.body.result) {
+                        case 1: // unhandled exceptions in C#
+                            return Observable.throw({ message: response.body.message });
+                        case 2: //validation error messages
+                            return Observable.throw(new NTException(response.body.message, response.body.errors));
+                        default:
+                            this.snackBarService.showSuccess(response.body.message);
+                            var data = undefined;
+                            if (response.body.dashboard === null) {
+                                data = response.body.model;
+                            }
+                            else {
+                                data = {
+                                    model: response.body.model,
+                                    dashboard: response.body.dashboard
                                 }
-                                else {
-                                    data = {
-                                        model: event.body.model,
-                                        dashboard: event.body.dashboard
-                                    }
-                                }
-                                return event.clone({ body: data });
-                        }
+                            }
+                            return Observable.of(response.clone({ body: data }));
                     }
                 }
-                return event;
-            });
+                return Observable.empty();
+            }),
+            catchError((err: HttpErrorResponse) => {
+                if (err instanceof NTException) {
+                    return Observable.throw(err);
+                }
+                if (err.status === 403) {
+                    this.snackBarService.showError(this.message.unAuthorized);
+                } else {
+                    this.snackBarService.showError(err.message);
+                }
+                return Observable.empty();
+            }));
     }
 }

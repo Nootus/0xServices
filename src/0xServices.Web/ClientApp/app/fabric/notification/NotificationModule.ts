@@ -4,7 +4,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatSnackBarModule, MAT_SNACK_BAR_DATA } from "@angular/material";
 
 import { SnackBarComponent } from "./SnackBarComponent";
-import { SnackBar } from "./SnackBar";
+import { SnackBarService } from "./SnackBarService";
 
 @NgModule({
     imports: [
@@ -19,7 +19,7 @@ import { SnackBar } from "./SnackBar";
         SnackBarComponent
     ],
     providers: [
-        SnackBar,
+        SnackBarService,
     ],
     exports: [
         SnackBarComponent

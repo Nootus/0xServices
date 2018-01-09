@@ -6,8 +6,8 @@ import { ProfileModel } from "./models/ProfileModel";
 import { LoginModel } from "./models/LoginModel";
 import { ChangePasswordModel } from "./models/ChangePasswordModel";
 
-import { Observable } from "rxjs";
-import "rxjs/add/operator/do";
+import { Observable } from "rxjs/Observable";
+import { tap } from "rxjs/operators/tap";
 
 @Injectable()
 export class AccountService {
@@ -17,9 +17,10 @@ export class AccountService {
 
     public validate(model: LoginModel): Observable<ProfileModel> {
         return this.http.post<ProfileModel>("/api/account/validate", model)
-            .do(data => {
+            .pipe(
+            tap((data: ProfileModel) => {
                 this.profile.populate(data);
-            });
+            }));
     }
 
     public logout(): Observable<void> {

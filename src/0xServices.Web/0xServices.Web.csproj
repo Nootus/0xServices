@@ -36,13 +36,17 @@
     <None Remove="ClientApp\app\fabric\account\models\MenuModel.ts" />
     <None Remove="ClientApp\app\fabric\account\models\ProfileModel.ts" />
     <None Remove="ClientApp\app\fabric\account\Profile.ts" />
+    <None Remove="ClientApp\app\fabric\AjaxModel.ts" />
     <None Remove="ClientApp\app\fabric\button\ButtonModule.ts" />
+    <None Remove="ClientApp\app\fabric\exception\ntError.ts" />
+    <None Remove="ClientApp\app\fabric\exception\ntException.ts" />
     <None Remove="ClientApp\app\fabric\FabHttpInterceptor.ts" />
+    <None Remove="ClientApp\app\fabric\Message.ts" />
     <None Remove="ClientApp\app\fabric\notification\models\SnackBarMessageType.ts" />
     <None Remove="ClientApp\app\fabric\notification\models\SnackBarModel.ts" />
     <None Remove="ClientApp\app\fabric\notification\NotificationModule.ts" />
-    <None Remove="ClientApp\app\fabric\notification\SnackBar.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
+    <None Remove="ClientApp\app\fabric\notification\SnackBarService.ts" />
     <None Remove="ClientApp\app\user\UserDialogService.ts" />
     <None Remove="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>
@@ -69,13 +73,16 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonIconComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\CoreModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NtError.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NtException.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabHttpInterceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\Message.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\models\SnackBarMessageType.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\models\SnackBarModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\NotificationModule.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBar.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarService.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
-    <TypeScriptCompile Include="ClientApp\app\user\SignInDialogComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user\LoginDialogComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\UserDialogService.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>

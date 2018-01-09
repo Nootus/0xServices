@@ -8,7 +8,7 @@
             <div fxLayout="column">
                 <span class="error" *ngIf="showError">{{errorMessage}}</span>
                 <nt-input controlName="userName" [formGroup]="loginForm" placeholder="User Name" hintLabel="Enter email address"></nt-input>
-                <nt-input controlName="userPassword" [formGroup]="loginForm" placeholder="Password"></nt-input>
+                <nt-input controlName="userPassword" type="password" [formGroup]="loginForm" placeholder="Password"></nt-input>
                 <button type="submit" mat-raised-button class="login-button">Login</button>
             </div>
         </div>
