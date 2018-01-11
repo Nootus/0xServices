@@ -1,4 +1,4 @@
-﻿import { Component, Input, Output, EventEmitter } from "@angular/core";
+﻿import { Component, Input } from "@angular/core";
 
 @Component({
     selector: "button-icon",
@@ -9,9 +9,4 @@ export class ButtonIconComponent {
     @Input() tooltip: string;
     @Input() type: string = "button";
     @Input() tabIndex: number = -1;
-    @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
-
-    onClick(event: MouseEvent): void {
-        this.click.emit(event);
-    }
 }

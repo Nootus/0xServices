@@ -46,13 +46,9 @@ export class LoginDialogComponent {
                     this.showError = true;
                     return Observable.empty();
                 }))
-                .subscribe();
+                .subscribe(data => {
+                    this.close();
+                });
         }
-    }
-
-    getErrorMessage(control: FormControl): string {
-        return control.hasError("required") ? this.messages.required :
-            control.hasError("email") ? this.messages.email :
-                "";
     }
 }

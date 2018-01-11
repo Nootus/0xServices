@@ -2,9 +2,9 @@
     <div class="top-bar-title has-hover">0x Services</div>
     <div fxFlex>
     </div>
-    <div fxLayout="row" *ngIf="true">
+    <div fxLayout="row" *ngIf="profile.isAuthenticated">
         <button-icon class="top-bar-item" tooltip="Change Password">lock_open</button-icon>
-        <button-icon class="top-bar-item" tooltip="Sign out">exit_to_app</button-icon>
+        <button-icon class="top-bar-item" tooltip="Logout" (click)="logout()">exit_to_app</button-icon>
         <div class="avatar top-bar-item has-hover" fxLayout="row">
             <div>
                 <div class="avatar-name">Prasanna Pattam</div>
@@ -13,7 +13,7 @@
             <img class="avatar-image" alt="" src="/images/Prasanna_Pattam.jpg">
         </div>
     </div>
-    <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="!profile.isAuthenticated">
         <div class="top-bar-item has-hover">
             Register
             <!--<img class="sign-register" src="/images/Register.png" />-->

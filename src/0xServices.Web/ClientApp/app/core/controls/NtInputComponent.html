@@ -1,6 +1,6 @@
 ﻿<div [formGroup]="formGroup" class="nt-input">
     <mat-form-field [hintLabel]="hintLabel">
-        <input matInput [placeholder]="placeholder" type="{{text}}" [formControlName]="controlName">
+        <input matInput [placeholder]="placeholder" type="{{type}}" [formControlName]="controlName">
         <mat-error *ngIf="formGroup.controls[controlName].invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 </div>
