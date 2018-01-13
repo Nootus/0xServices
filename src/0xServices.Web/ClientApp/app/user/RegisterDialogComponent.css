@@ -1,0 +1,59 @@
+﻿.register-dialog {
+    width: 400px;
+    height: 300px;
+    min-width: 600px;
+    max-width: 95%;
+}
+
+.register-dialog > .mat-dialog-container {
+    padding: 0;
+}
+
+.dialog {
+    height: 100%;
+}
+
+.register-form {
+    width: 100%;
+}
+
+.header-section {
+    background-color: rgb(67, 116, 167);
+}
+
+.content {
+    padding: 20px;
+    background-color: #ddd;
+    height: 100%;
+}
+
+.header-image {
+    width: 150px;
+    height: 123px;
+    background: url(Register.svg);
+    background-size: 150px 123px;
+}
+
+.header {
+    padding: 10px;
+    font-size: 18pt;
+    color: white;
+}
+
+.register-button {
+    background-color: rgb(67, 116, 167);
+    color: white;
+}
+
+.close-section {
+    background-color: #ddd;
+    color: rgb(67, 116, 167);
+}
+
+.nt-input {
+    padding: 0px 0px 20px 0px;
+}
+
+.error {
+    color: red;
+}

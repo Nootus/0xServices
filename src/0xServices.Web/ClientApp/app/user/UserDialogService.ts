@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { MatDialog, MatDialogRef } from "@angular/material"
 
 import { LoginDialogComponent } from "./LoginDialogComponent";
+import { RegisterDialogComponent } from "./RegisterDialogComponent";
 
 @Injectable()
 export class UserDialogService {
@@ -12,11 +13,17 @@ export class UserDialogService {
 
     login() : void {
         let dialogRef: MatDialogRef<LoginDialogComponent> = this.dialog.open(LoginDialogComponent, {
-            panelClass: "sign-in-dialog"
+            panelClass: "user-dialog"
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            //  alert(result);
+        dialogRef.afterClosed().subscribe();
+    }
+
+    register(): void {
+        let dialogRef: MatDialogRef<RegisterDialogComponent> = this.dialog.open(RegisterDialogComponent, {
+            panelClass: "user-dialog"
         });
+
+        dialogRef.afterClosed().subscribe();
     }
 }

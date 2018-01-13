@@ -7,11 +7,15 @@ import { FabricModule } from "../fabric/FabricModule";
 import { ControlModule } from "../core/controls/ControlModule";
 
 import { LoginDialogComponent } from "./LoginDialogComponent";
+import { RegisterDialogComponent } from "./RegisterDialogComponent";
+import { UserDialogComponent } from "./UserDialogComponent";
 import { UserDialogService } from "./UserDialogService";
 
 @NgModule({
     declarations: [
-        LoginDialogComponent
+        LoginDialogComponent,
+        RegisterDialogComponent,
+        UserDialogComponent
     ],
     imports: [
         CommonModule,
@@ -26,7 +30,8 @@ import { UserDialogService } from "./UserDialogService";
     exports: [
     ],
     entryComponents: [
-        LoginDialogComponent
+        LoginDialogComponent,
+        RegisterDialogComponent
     ]
 })
 export class UserModule {

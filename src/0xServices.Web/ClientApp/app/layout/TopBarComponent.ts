@@ -19,6 +19,10 @@ export class TopBarComponent {
         this.userDialogService.login();
     }
 
+    register() {
+        this.userDialogService.register();
+    }
+
     logout() {
         this.accountService.logout().subscribe(() => {
             this.profile.logout();

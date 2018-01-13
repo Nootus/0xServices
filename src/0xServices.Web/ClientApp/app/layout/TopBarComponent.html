@@ -15,13 +15,13 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" *ngIf="!profile.isAuthenticated">
         <div class="top-bar-item has-hover">
-            Register
-            <!--<img class="sign-register" src="/images/Register.png" />-->
+            <button mat-button (click)="register()">
+                Register
+            </button>
         </div>
         <div class="top-bar-item has-hover">
             <button mat-button (click)="login()">
                 Login
-                <!--<img class="sign-register" src="/images/Signin.png" />-->
             </button>
         </div>
     </div>

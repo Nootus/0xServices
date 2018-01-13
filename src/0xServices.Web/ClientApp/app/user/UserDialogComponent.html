@@ -1,0 +1,25 @@
+﻿<div fxLayout="row" class="dialog">
+    <form class="user-form" [formGroup]="userForm" (ngSubmit)="submitForm()" novalidate>
+        <div fxFlex="30" class="header-section" fxLayoutAlign="center center">
+            <ng-content select="[dialog-header]"></ng-content>
+        </div>
+        <div fxFlex class="content" fxLayoutAlign="center center">
+            <div fxLayout="column">
+                <div *ngIf="showError">
+                    <span class="error">{{errorMessage}}</span>
+                    <ul class="error">
+                        <li *ngFor="let error of errors">{{error.description}}</li>
+                    </ul>
+                </div>
+                <ng-content select="[user-form]"></ng-content>
+            </div>
+        </div>
+        <div class="close-section">
+            <button-icon class="close-icon" tooltip="Close" (click)="close()">close</button-icon>
+        </div>
+    </form>
+</div>
+
+<!-- custom validation, email and confirm email should be same -->
+<!--https://toddmotto.com/reactive-formgroup-validation-angular-2-->
+<!--https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2-->

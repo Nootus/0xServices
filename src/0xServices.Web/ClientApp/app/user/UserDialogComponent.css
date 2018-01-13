@@ -1,0 +1,59 @@
+﻿.user-dialog {
+    width: 400px;
+    height: 300px;
+    min-width: 600px;
+    max-width: 95%;
+}
+
+.user-dialog > .mat-dialog-container {
+    padding: 0;
+}
+
+.dialog {
+    height: 100%;
+}
+
+.user-form {
+    width: 100%;
+}
+
+.header-section {
+    background-color: rgb(67, 116, 167);
+}
+
+.header {
+    padding: 10px;
+    font-size: 18pt;
+    color: white;
+}
+
+.header-image {
+    width: 150px;
+    height: 123px;
+    background-size: 150px 123px;
+}
+
+.content {
+    padding: 20px;
+    background-color: #ddd;
+    height: 100%;
+}
+
+.submit-button {
+    background-color: rgb(67, 116, 167);
+    color: white;
+    width: 100%;
+}
+
+.close-section {
+    background-color: #ddd;
+    color: rgb(67, 116, 167);
+}
+
+.nt-input {
+    padding: 0px 0px 20px 0px;
+}
+
+.error {
+    color: red;
+}

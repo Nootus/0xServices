@@ -35,6 +35,7 @@
     <None Remove="ClientApp\app\fabric\account\models\LoginModel.ts" />
     <None Remove="ClientApp\app\fabric\account\models\MenuModel.ts" />
     <None Remove="ClientApp\app\fabric\account\models\ProfileModel.ts" />
+    <None Remove="ClientApp\app\fabric\account\models\RegisterUserModel.ts" />
     <None Remove="ClientApp\app\fabric\account\Profile.ts" />
     <None Remove="ClientApp\app\fabric\AjaxModel.ts" />
     <None Remove="ClientApp\app\fabric\button\ButtonModule.ts" />
@@ -47,6 +48,7 @@
     <None Remove="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarService.ts" />
+    <None Remove="ClientApp\app\user\RegisterDialogComponent.ts" />
     <None Remove="ClientApp\app\user\UserDialogService.ts" />
     <None Remove="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>
@@ -69,6 +71,7 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\account\models\LoginModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\models\MenuModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\models\ProfileModel.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\account\models\RegisterUserModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\Profile.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonIconComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
@@ -83,6 +86,7 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarService.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\LoginDialogComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\user\RegisterDialogComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\UserDialogService.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\UserModule.ts" />
   </ItemGroup>
