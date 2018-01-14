@@ -1,28 +1,20 @@
-﻿<div fxLayout="row" class="dialog">
-    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
-        <div fxFlex="30" fxLayout="column" class="header-section" fxLayoutAlign="center center">
-            <span class="header-image"></span>
-            <span class="header">Register</span>
+﻿<user-dialog [userForm]="registerForm" (ntSubmit)="submitForm($event)">
+    <div dialog-header>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <div class="header-register-image header-image"></div>
+            <div class="header">Register</div>
         </div>
-        <div fxFlex class="content" fxLayoutAlign="center center">
-            <div fxLayout="column">
-                <div *ngIf="showError">
-                    <span class="error">{{errorMessage}}</span>
-                    <ul class="error">
-                        <li *ngFor="let error of errors">{{error.description}}</li>
-                    </ul>
-                </div>
-                <nt-input controlName="userName" [formGroup]="registerForm" placeholder="User Name" hintLabel="Enter email address"></nt-input>
-                <nt-input controlName="userPassword" type="password" [formGroup]="registerForm" placeholder="Password"></nt-input>
-                <button type="submit" mat-raised-button class="register-button">Register</button>
-            </div>
+    </div>
+    <div user-form fxLayout="column">
+        <div fxLayout="row">
+            <nt-input controlName="firstName" [formGroup]="registerForm" placeholder="First Name"></nt-input>
+            <nt-input controlName="lastName" [formGroup]="registerForm" placeholder="Last Name"></nt-input>
         </div>
-        <div class="close-section">
-            <button-icon class="close-icon" tooltip="Close" (click)="close()">close</button-icon>
+        <nt-input controlName="userName" [formGroup]="registerForm" placeholder="User Name" hintLabel="Enter email address"></nt-input>
+        <div fxLayout="row">
+            <nt-input controlName="password" type="password" [formGroup]="registerForm" placeholder="Password"></nt-input>
+            <nt-input controlName="confirmPassword" type="password" [formGroup]="registerForm" placeholder="Password"></nt-input>
         </div>
-    </form>
-</div>
-
-<!-- custom validation, email and confirm email should be same -->
-<!--https://toddmotto.com/reactive-formgroup-validation-angular-2-->
-<!--https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2-->
+        <button type="submit" mat-raised-button class="submit-button">Register</button>
+    </div>
+</user-dialog>

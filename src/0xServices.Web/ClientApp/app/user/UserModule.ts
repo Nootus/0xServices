@@ -8,6 +8,7 @@ import { ControlModule } from "../core/controls/ControlModule";
 
 import { LoginDialogComponent } from "./LoginDialogComponent";
 import { RegisterDialogComponent } from "./RegisterDialogComponent";
+import { ChangePasswordDialogComponent } from "./ChangePasswordDialogComponent";
 import { UserDialogComponent } from "./UserDialogComponent";
 import { UserDialogService } from "./UserDialogService";
 
@@ -15,6 +16,7 @@ import { UserDialogService } from "./UserDialogService";
     declarations: [
         LoginDialogComponent,
         RegisterDialogComponent,
+        ChangePasswordDialogComponent,
         UserDialogComponent
     ],
     imports: [
@@ -31,7 +33,8 @@ import { UserDialogService } from "./UserDialogService";
     ],
     entryComponents: [
         LoginDialogComponent,
-        RegisterDialogComponent
+        RegisterDialogComponent,
+        ChangePasswordDialogComponent
     ]
 })
 export class UserModule {

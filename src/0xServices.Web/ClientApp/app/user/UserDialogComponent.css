@@ -1,7 +1,6 @@
 ﻿.user-dialog {
-    width: 400px;
+    width: 650px;
     height: 300px;
-    min-width: 600px;
     max-width: 95%;
 }
 
@@ -19,6 +18,7 @@
 
 .header-section {
     background-color: rgb(67, 116, 167);
+    width: 180px;
 }
 
 .header {
@@ -28,9 +28,9 @@
 }
 
 .header-image {
-    width: 150px;
-    height: 123px;
-    background-size: 150px 123px;
+    width: 160px;
+    height: 160px;
+    background-size: 160px 160px;
 }
 
 .content {
@@ -48,10 +48,6 @@
 .close-section {
     background-color: #ddd;
     color: rgb(67, 116, 167);
-}
-
-.nt-input {
-    padding: 0px 0px 20px 0px;
 }
 
 .error {

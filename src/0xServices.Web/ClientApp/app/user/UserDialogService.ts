@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from "@angular/material"
 
 import { LoginDialogComponent } from "./LoginDialogComponent";
 import { RegisterDialogComponent } from "./RegisterDialogComponent";
+import { ChangePasswordDialogComponent } from "./ChangePasswordDialogComponent";
 
 @Injectable()
 export class UserDialogService {
@@ -21,6 +22,14 @@ export class UserDialogService {
 
     register(): void {
         let dialogRef: MatDialogRef<RegisterDialogComponent> = this.dialog.open(RegisterDialogComponent, {
+            panelClass: "user-dialog"
+        });
+
+        dialogRef.afterClosed().subscribe();
+    }
+
+    changePassword(): void {
+        let dialogRef: MatDialogRef<ChangePasswordDialogComponent> = this.dialog.open(ChangePasswordDialogComponent, {
             panelClass: "user-dialog"
         });
 

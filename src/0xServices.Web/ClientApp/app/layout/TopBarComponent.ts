@@ -23,6 +23,10 @@ export class TopBarComponent {
         this.userDialogService.register();
     }
 
+    changePassword() {
+        this.userDialogService.changePassword();
+    }
+
     logout() {
         this.accountService.logout().subscribe(() => {
             this.profile.logout();

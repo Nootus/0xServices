@@ -8,11 +8,11 @@ import { UserDialogComponent } from "./UserDialogComponent";
 
 @Component({
     selector: "login-in",
-    templateUrl: "./LoginDialogComponent.html",
-    styleUrls: ["./LoginDialogComponent.css"],
+    templateUrl: "./ChangePasswordDialogComponent.html",
+    styleUrls: ["./ChangePasswordDialogComponent.css"],
     encapsulation: ViewEncapsulation.None
 })
-export class LoginDialogComponent {
+export class ChangePasswordDialogComponent {
     @ViewChild(UserDialogComponent) userDialogComponent: UserDialogComponent<LoginModel>;
     loginForm: FormGroup;
 

@@ -5,7 +5,8 @@ import { ValidationMessage } from "../messages/ValidationMessage";
 
 @Component({
     selector: "nt-input",
-    templateUrl: "./NtInputComponent.html"
+    templateUrl: "./NtInputComponent.html",
+    styleUrls: ["./NtInputComponent.css"]
 })
 export class NtInputComponent {
     @Input() formGroup: FormGroup;

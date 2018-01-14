@@ -1,17 +1,10 @@
-﻿import { Component, ViewEncapsulation } from "@angular/core";
-import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { MatDialogRef } from "@angular/material";
+﻿import { Component, ViewEncapsulation, ViewChild } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-import { Observable } from "rxjs/Observable";
-import { catchError } from "rxjs/operators/catchError";
-import "rxjs/add/observable/empty";
-
-import { NTException } from "../fabric/exception/NtException";
-import { NTError } from "../fabric/exception/NtError";
-import { ValidationMessage } from "../core/messages/ValidationMessage";
 import { AccountService } from "../fabric/account/AccountService";
-import { LoginModel } from "../fabric/account/models/LoginModel";
+import { RegisterUserModel } from "../fabric/account/models/RegisterUserModel";
 
+import { UserDialogComponent } from "./UserDialogComponent";
 
 @Component({
     selector: "register",
@@ -20,39 +13,22 @@ import { LoginModel } from "../fabric/account/models/LoginModel";
     encapsulation: ViewEncapsulation.None
 })
 export class RegisterDialogComponent {
+    @ViewChild(UserDialogComponent) userDialogComponent: UserDialogComponent<RegisterUserModel>;
     registerForm: FormGroup;
-    showError: boolean = false;
-    errorMessage: string;
-    errors: NTError[];
 
     constructor(private fb: FormBuilder,
-        private dialogRef: MatDialogRef<RegisterDialogComponent>,
-        private accountService: AccountService,
-        private messages: ValidationMessage) {
+        private accountService: AccountService) {
         this.registerForm = fb.group({
-            userName: ["prasanna@nootus.com", [Validators.required, Validators.email]],
-            userPassword: ["Nootus@123", Validators.required]
+            firstName: ["", [Validators.required]],
+            lastName: ["", [Validators.required]],
+            userName: ["", [Validators.required, Validators.email]],
+            password: ["", Validators.required],
+            confirmPassword: ["", Validators.required]
         });
     }
 
-    close() {
-        this.dialogRef.close();
-    }
-
-    register() {
-        this.showError = false;
-        if (this.registerForm.valid) {
-            this.accountService.register(this.registerForm.value)
-                .pipe(
-                catchError((exp: NTException) => {
-                    this.errorMessage = exp.message;
-                    this.errors = exp.errors;
-                    this.showError = true;
-                    return Observable.empty();
-                }))
-                .subscribe(data => {
-                    this.close();
-                });
-        }
+    submitForm(model: RegisterUserModel) {
+        this.userDialogComponent.subscribe(
+            this.accountService.register(model));
     }
 }
