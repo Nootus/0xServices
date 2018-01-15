@@ -19,8 +19,8 @@ export class LoginDialogComponent {
     constructor(private fb: FormBuilder,
         private accountService: AccountService) {
         this.loginForm = fb.group({
-            userName: ["prasanna@nootus.com", [Validators.required, Validators.email]],
-            userPassword: ["Nootus@123", Validators.required]
+            userName: ["prasanna@nootus.com", [Validators.required, Validators.maxLength(100), Validators.email]],
+            userPassword: ["Nootus@123", Validators.required, Validators.maxLength(20)]
         });
     }
 

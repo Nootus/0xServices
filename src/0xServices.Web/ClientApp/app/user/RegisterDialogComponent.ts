@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { AccountService } from "../fabric/account/AccountService";
 import { RegisterUserModel } from "../fabric/account/models/RegisterUserModel";
+import { NTValidators } from "../fabric/validator/NTValidators";
+import { ValidationMessage } from "../core/messages/ValidationMessage";
 
 import { UserDialogComponent } from "./UserDialogComponent";
 
@@ -19,11 +21,11 @@ export class RegisterDialogComponent {
     constructor(private fb: FormBuilder,
         private accountService: AccountService) {
         this.registerForm = fb.group({
-            firstName: ["", [Validators.required]],
-            lastName: ["", [Validators.required]],
-            userName: ["", [Validators.required, Validators.email]],
-            password: ["", Validators.required],
-            confirmPassword: ["", Validators.required]
+            firstName: ["", [Validators.required, Validators.maxLength(100)]],
+            lastName: ["", [Validators.required, Validators.maxLength(100)]],
+            userName: ["", [Validators.required, Validators.maxLength(100), Validators.email]],
+            password: ["", [Validators.required, Validators.maxLength(20)]],
+            confirmPassword: ["", [Validators.required, Validators.maxLength(20), NTValidators.mathchOther("password", ValidationMessage.confirmPasswordMismatch)]]
         });
     }
 

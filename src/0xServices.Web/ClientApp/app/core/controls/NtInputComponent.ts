@@ -15,13 +15,28 @@ export class NtInputComponent {
     @Input() placeholder: string;
     @Input() hintLabel: string;
     
-    constructor(private messages: ValidationMessage) {
+    constructor() {
     }
 
     getErrorMessage(): string {
         let control: AbstractControl = this.formGroup.controls[this.controlName];
-        return control.hasError("required") ? this.messages.required :
-            control.hasError("email") ? this.messages.email :
-                "";
+
+        return "error";
+
+        ////checking for custom validators
+        //if (control.errors !== null) {
+        //    for (let key of Object.getOwnPropertyNames(control.errors)) {
+        //        if (control.errors[key].custom === true) {
+        //            return control.errors[key].message;
+        //        }
+
+        //    }
+        //}
+
+        //// builtin validations
+        //return control.hasError("required") ? ValidationMessage.required :
+        //    control.hasError("email") ? ValidationMessage.email :
+        //        control.hasError("maxlength") ? ValidationMessage.maxlength(control.errors!.maxlength.requiredLength) :
+        //        "";
     }
 }

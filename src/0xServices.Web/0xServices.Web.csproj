@@ -25,7 +25,6 @@
     <None Remove="ClientApp\app\AppStyles.ts" />
     <None Remove="ClientApp\app\core\controls\ControlModule.ts" />
     <None Remove="ClientApp\app\core\controls\NtInputComponent.ts" />
-    <None Remove="ClientApp\app\core\messages\MessageModule.ts" />
     <None Remove="ClientApp\app\core\messages\ValidationMessage.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountModule.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountService.ts" />
@@ -48,6 +47,8 @@
     <None Remove="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
     <None Remove="ClientApp\app\fabric\notification\SnackBarService.ts" />
+    <None Remove="ClientApp\app\fabric\validator\MatchOtherValidator.ts" />
+    <None Remove="ClientApp\app\fabric\validator\NTValidators.ts" />
     <None Remove="ClientApp\app\user\ChangePasswordDialogComponent.ts" />
     <None Remove="ClientApp\app\user\RegisterDialogComponent.ts" />
     <None Remove="ClientApp\app\user\UserDialogService.ts" />
@@ -62,7 +63,6 @@
     <TypeScriptCompile Include="ClientApp\app\AppStyles.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\controls\ControlModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\controls\NtInputComponent.ts" />
-    <TypeScriptCompile Include="ClientApp\app\core\messages\MessageModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\messages\ValidationMessage.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountService.ts" />
@@ -77,8 +77,8 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonIconComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\CoreModule.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NtError.ts" />
-    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NtException.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NTError.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NTException.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabHttpInterceptor.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\Message.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\models\SnackBarMessageType.ts" />
@@ -86,6 +86,8 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\NotificationModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarService.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\notification\SnackBarComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\validator\MatchOtherValidator.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\validator\NTValidators.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\ChangePasswordDialogComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\LoginDialogComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\RegisterDialogComponent.ts" />

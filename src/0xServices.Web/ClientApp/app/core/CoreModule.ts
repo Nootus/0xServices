@@ -1,13 +1,11 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { MessageModule } from "./messages/MessageModule";
 import { ControlModule } from "./controls/ControlModule";
 
 @NgModule({
     imports: [
         CommonModule,
-        MessageModule,
         ControlModule
     ],
     declarations: [
@@ -15,7 +13,6 @@ import { ControlModule } from "./controls/ControlModule";
     providers: [
     ],
     exports: [
-        MessageModule,
         ControlModule
     ]
 })
