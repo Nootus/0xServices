@@ -20,7 +20,7 @@ export class LoginDialogComponent {
         private accountService: AccountService) {
         this.loginForm = fb.group({
             userName: ["prasanna@nootus.com", [Validators.required, Validators.maxLength(100), Validators.email]],
-            userPassword: ["Nootus@123", Validators.required, Validators.maxLength(20)]
+            userPassword: ["Nootus@123", [Validators.required, Validators.maxLength(20)]]
         });
     }
 

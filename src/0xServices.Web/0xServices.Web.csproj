@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\AppStyles.ts" />
     <None Remove="ClientApp\app\core\controls\ControlModule.ts" />
+    <None Remove="ClientApp\app\core\controls\NTFormComponent.ts" />
     <None Remove="ClientApp\app\core\controls\NtInputComponent.ts" />
     <None Remove="ClientApp\app\core\messages\ValidationMessage.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountModule.ts" />
@@ -39,6 +40,7 @@
     <None Remove="ClientApp\app\fabric\AjaxModel.ts" />
     <None Remove="ClientApp\app\fabric\button\ButtonModule.ts" />
     <None Remove="ClientApp\app\fabric\exception\ntError.ts" />
+    <None Remove="ClientApp\app\fabric\exception\NTErrorStateMatcher.ts" />
     <None Remove="ClientApp\app\fabric\exception\ntException.ts" />
     <None Remove="ClientApp\app\fabric\FabHttpInterceptor.ts" />
     <None Remove="ClientApp\app\fabric\Message.ts" />
@@ -62,7 +64,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\AppStyles.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\controls\ControlModule.ts" />
-    <TypeScriptCompile Include="ClientApp\app\core\controls\NtInputComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\NTFormComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\NTInputComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\messages\ValidationMessage.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountService.ts" />
@@ -78,6 +81,7 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\button\ButtonModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\CoreModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\exception\NTError.ts" />
+    <TypeScriptCompile Include="ClientApp\app\fabric\exception\NTErrorStateMatcher.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\exception\NTException.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\FabHttpInterceptor.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\Message.ts" />

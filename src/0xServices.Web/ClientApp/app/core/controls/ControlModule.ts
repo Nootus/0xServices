@@ -3,11 +3,13 @@ import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule, MatInputModule, MatButtonModule } from "@angular/material"
 
-import { NtInputComponent } from "./NtInputComponent";
+import { NTInputComponent } from "./NTInputComponent";
+import { NTFormComponent } from "./NTFormComponent";
 
 @NgModule({
     declarations: [
-        NtInputComponent
+        NTInputComponent,
+        NTFormComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { NtInputComponent } from "./NtInputComponent";
     providers: [
     ],
     exports: [
-        NtInputComponent
+        NTInputComponent,
+        NTFormComponent
     ]
 })
 export class ControlModule {

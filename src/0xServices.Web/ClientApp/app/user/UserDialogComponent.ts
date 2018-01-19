@@ -1,5 +1,5 @@
-﻿import { Component, ViewEncapsulation, Input, Output, EventEmitter } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+﻿import { Component, ViewEncapsulation, Input, Output, EventEmitter, ViewChild, ViewChildren, QueryList } from "@angular/core";
+import { FormGroup, NgForm, FormGroupDirective } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
 import { Observable } from "rxjs/Observable";
@@ -8,6 +8,7 @@ import "rxjs/add/observable/empty";
 
 import { NTException } from "../fabric/exception/NtException";
 import { NTError } from "../fabric/exception/NtError";
+import { NTErrorStateMatcher } from "../fabric/exception/NTErrorStateMatcher";
 
 @Component({
     selector: "user-dialog",
@@ -21,6 +22,10 @@ export class UserDialogComponent<TDialogComponent> {
     showError: boolean = false;
     errorMessage: string;
     errors: NTError[];
+
+    @ViewChild(FormGroupDirective) frm: FormGroupDirective;
+    @ViewChildren(FormGroupDirective) frmGrp: QueryList<FormGroupDirective>
+    matcher: NTErrorStateMatcher = new NTErrorStateMatcher();
 
     constructor(private dialogRef: MatDialogRef<TDialogComponent>) {
     }
@@ -48,5 +53,9 @@ export class UserDialogComponent<TDialogComponent> {
             .subscribe(() => {
                 this.close();
             });
+    }
+
+    getErrorMessage(): string {
+        return "Error";
     }
 }
