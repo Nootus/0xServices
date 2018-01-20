@@ -5,7 +5,12 @@ export class NTErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm): boolean {
         let isSubmitted: boolean | null = form && form.submitted;
 
-        let rootFormGroupDirective: FormGroupDirective = (form.form.root as any).RootFormGroupDirective;
+        let rootFormGroupDirective: FormGroupDirective | undefined = undefined;
+
+        if (form.form !== undefined && form.form.root !== undefined) {
+            rootFormGroupDirective = (form.form.root as any).RootFormGroupDirective;
+        }
+            
 
         if (rootFormGroupDirective !== undefined) {
             isSubmitted = rootFormGroupDirective.submitted;

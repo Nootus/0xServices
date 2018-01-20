@@ -2,30 +2,33 @@
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { AccountService } from "../fabric/account/AccountService";
-import { LoginModel } from "../fabric/account/models/LoginModel";
+import { ChangePasswordModel } from "../fabric/account/models/ChangePasswordModel";
+import { NTValidators } from "../fabric/validator/NTValidators";
+import { ValidationMessage } from "../core/messages/ValidationMessage";
 
 import { UserDialogComponent } from "./UserDialogComponent";
 
 @Component({
-    selector: "login-in",
+    selector: "change-password",
     templateUrl: "./ChangePasswordDialogComponent.html",
     styleUrls: ["./ChangePasswordDialogComponent.css"],
     encapsulation: ViewEncapsulation.None
 })
 export class ChangePasswordDialogComponent {
-    @ViewChild(UserDialogComponent) userDialogComponent: UserDialogComponent<LoginModel>;
-    loginForm: FormGroup;
+    @ViewChild(UserDialogComponent) userDialogComponent: UserDialogComponent<ChangePasswordModel>;
+    changePasswordForm: FormGroup;
 
     constructor(private fb: FormBuilder,
         private accountService: AccountService) {
-        this.loginForm = fb.group({
-            userName: ["prasanna@nootus.com", [Validators.required, Validators.email]],
-            userPassword: ["Nootus@123", Validators.required]
+        this.changePasswordForm = fb.group({
+            currentPassword: ["", [Validators.required, Validators.maxLength(20)]],
+            newPassword: ["", [Validators.required, Validators.maxLength(20)]],
+            confirmPassword: ["", [Validators.required, Validators.maxLength(20), NTValidators.mathchOther("newPassword", ValidationMessage.confirmPasswordMismatch)]]
         });
     }
 
-    submitForm(model: LoginModel) {
+    submitForm(model: ChangePasswordModel) {
         this.userDialogComponent.subscribe(
-            this.accountService.validate(model));
+            this.accountService.changePassword(model));
     }
 }

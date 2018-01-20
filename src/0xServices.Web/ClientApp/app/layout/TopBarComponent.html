@@ -7,8 +7,8 @@
         <button-icon class="top-bar-item" tooltip="Logout" (click)="logout()">exit_to_app</button-icon>
         <div class="avatar top-bar-item has-hover" fxLayout="row">
             <div>
-                <div class="avatar-name">Prasanna Pattam</div>
-                <div class="avatar-username">Prasanna</div>
+                <div class="avatar-name">{{profile.user.fullName}}</div>
+                <div class="avatar-username">{{profile.user.userName}}</div>
             </div>
             <img class="avatar-image" alt="" src="/images/Prasanna_Pattam.jpg">
         </div>

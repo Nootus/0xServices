@@ -1,21 +1,19 @@
-﻿<div fxLayout="row" class="dialog">
-    <nt-form class="user-form" [formGroup]="userForm" (ntSubmit)="submitForm()">
+﻿<nt-form class="user-form" cssClass="user-form" [formGroup]="userForm" (ntSubmit)="submitForm()">
+    <div fxLayout="row" class="dialog">
         <div class="header-section" fxLayoutAlign="center center">
             <ng-content select="[dialog-header]"></ng-content>
         </div>
-        <div fxFlex class="content" fxLayoutAlign="center center">
-            <div fxLayout="column">
-                <div *ngIf="showError">
-                    <span class="error">{{errorMessage}}</span>
-                    <ul class="error">
-                        <li *ngFor="let error of errors">{{error.description}}</li>
-                    </ul>
-                </div>
-                <ng-content select="[user-form]"></ng-content>
+        <div fxFlex fxLayout="column" class="content" fxLayoutAlign="center center">
+            <div *ngIf="showError" class="dialog-error">
+                <span>{{errorMessage}}</span>
+                <ul>
+                    <li *ngFor="let error of errors">{{error.description}}</li>
+                </ul>
             </div>
+            <ng-content select="[user-form]"></ng-content>
         </div>
         <div class="close-section">
             <button-icon class="close-icon" tooltip="Close" (click)="close()">close</button-icon>
         </div>
-    </nt-form>
-</div>
+    </div>
+</nt-form>
