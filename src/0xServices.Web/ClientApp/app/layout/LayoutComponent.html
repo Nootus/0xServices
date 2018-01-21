@@ -1,29 +1,26 @@
-﻿<top-bar></top-bar>
-<div fxLayout="row">
-    <render-section name="menu" fxFlex="25">
-        <b>Menu</b> <br />
-        <a routerLink="/home">Home</a> <br />
-        <a routerLink="/counter">Counter</a> <br />
-        <a routerLink="/fetch-data">Fetch Data</a> <br />
-        <br />
-        <button type="button" mat-button (click)="testClick(0)">Error!</button>
-        <br />
-        <button type="button" mat-button (click)="testClick(1)">warning</button>
-        <br />
-        <button type="button" mat-button (click)="testClick(2)">success</button>
-        <br />
-        <button type="button" mat-button (click)="testClick(3)">info</button>
-        <br />
-        <render-section name="layout">
-            From Layout - Layout
+﻿<div fxLayout="column" fxFill>
+    <top-bar></top-bar>
+    <div fxLayout="row" class="body-content">
+        <render-section name="menu" class="left-bar">
+            <mat-list class="layout-list">
+                <mat-list-item class="left-menu-item has-hover" 
+                               [ngClass]="{'left-menu-item-selected': isSelectedMenu(item.name)}"
+                                *ngFor="let item of menu"
+                               >
+                    <a mat-button class="mat-slider-hide-last-tick" [routerLink]="item.routerUrl" 
+                       fxLayoutAlign="start end" (click)="menuClick(item.name)">
+                        <mat-icon class="left-menu-item-icon">{{item.iconCss}}</mat-icon>
+                        <span>{{item.text}}</span>
+                    </a>
+                    <mat-divider class="divider"></mat-divider>
+                </mat-list-item>
+            </mat-list>
         </render-section>
-        <br />
-        <render-section name="test" [hidden]="true">
-            From Layout - Test
-        </render-section>
-    </render-section>
-    <div fxFlex class="main-content">
-        <render-body></render-body>
+        <div fxFlex>
+            <mat-card fxFill class="main-content mat-elevation-z">
+                <render-body></render-body>
+            </mat-card>
+        </div>
     </div>
 </div>
  

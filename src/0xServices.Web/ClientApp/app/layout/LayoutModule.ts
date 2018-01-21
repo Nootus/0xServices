@@ -1,7 +1,11 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatButtonModule, MatDialogModule } from "@angular/material";
+import {
+    MatButtonModule, MatDialogModule,
+    MatCardModule, MatListModule,
+    MatIconModule
+} from "@angular/material";
 
 import { FabricModule } from "../fabric/FabricModule";
 import { UserModule } from "../user/UserModule";
@@ -15,6 +19,9 @@ import { LayoutComponent } from "./LayoutComponent";
         FlexLayoutModule,
         MatButtonModule,
         MatDialogModule,
+        MatCardModule,
+        MatListModule,
+        MatIconModule,
         FabricModule,
         UserModule
     ],

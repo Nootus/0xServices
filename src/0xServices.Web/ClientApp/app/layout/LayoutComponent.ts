@@ -1,6 +1,6 @@
 ﻿import { Component } from "@angular/core";
-import { AccountService } from "../fabric/account/AccountService";
-import { SnackBarService } from "../fabric/notification/SnackBarService";
+
+import { MenuModel } from "./models/MenuModel";
 
 @Component({
     selector: "layout",
@@ -8,14 +8,18 @@ import { SnackBarService } from "../fabric/notification/SnackBarService";
     styleUrls: ["./LayoutComponent.css"]
 })
 export class LayoutComponent {
-    testvar: string = "Temp variable";
-    hideNow: boolean = false;
+    selectedMenu: string = "home";
+    menu: MenuModel[] = [
+        { name: "home", text: "Home", routerUrl: "/home", iconCss: "home" },
+        { name: "search", text: "Search", routerUrl: "/counter", iconCss: "search" },
+        { name: "data", text: "Data", routerUrl: "/fetch-data", iconCss: "home" }
+    ];
 
-    constructor(private accountService: AccountService, private snackBarService: SnackBarService) {
+    menuClick(menuName: string): void {
+        this.selectedMenu = menuName;
     }
 
-    testClick(messageType: number) {
-        this.snackBarService.showMessage("This is Message", messageType);
-        // this.accountService.get();
+    isSelectedMenu(menuName: string): boolean {
+        return menuName === this.selectedMenu;
     }
 }

@@ -2,3 +2,68 @@
     background-color: #53575b;
 }*/
 
+.body-content {
+    height: 100%;
+    background-color: #282d32;
+}
+
+.left-bar {
+    width: 150px;
+    background-color: rgba(67,116,167,.25);
+}
+
+.layout-list {
+    padding-top: 0;
+}
+
+.left-menu-item a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: none;
+    width: 95%;
+    text-align: left;
+    margin: 4px 0px;
+    text-overflow: ellipsis;
+}
+
+.left-menu-item:hover {
+    border-left: 5px solid #00bcf2;
+    margin-left: 0px;
+}
+
+.left-menu-item a:focus {
+    outline: none;
+}
+
+
+.divider {
+    border-top-color: rgba(255,255,255,.12);
+}
+
+.left-menu-item {
+    margin-left: 5px;
+}
+
+.left-menu-item .left-menu-item-icon {
+    color: #00bcf2;
+    padding-right: 30px;
+}
+
+.left-menu-item-selected {
+    background-color: #ddd;
+}
+
+.left-menu-item-selected a {
+    color: #000;
+}
+
+.left-menu-item-selected .left-menu-item-icon {
+    color: #000;
+}
+
+.main-content {
+    background-color: #ddd;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
