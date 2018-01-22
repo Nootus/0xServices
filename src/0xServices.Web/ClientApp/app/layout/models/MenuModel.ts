@@ -3,4 +3,6 @@
     text: string;
     routerUrl: string;
     iconCss: string;
+    iconCssSelected: string;
+    tooltip: string;
 }

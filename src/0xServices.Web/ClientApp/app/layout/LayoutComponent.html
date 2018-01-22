@@ -7,10 +7,12 @@
                                [ngClass]="{'left-menu-item-selected': isSelectedMenu(item.name)}"
                                 *ngFor="let item of menu"
                                >
-                    <a mat-button class="mat-slider-hide-last-tick" [routerLink]="item.routerUrl" 
-                       fxLayoutAlign="start end" (click)="menuClick(item.name)">
-                        <mat-icon class="left-menu-item-icon">{{item.iconCss}}</mat-icon>
-                        <span>{{item.text}}</span>
+                    <a mat-button [routerLink]="item.routerUrl" 
+                       (click)="menuClick(item.name)" matTooltip="{{item.tooltip}}" matTooltipPosition="right">
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <div class="left-menu-item-icon" [ngClass]="isSelectedMenu(item.name)? item.iconCssSelected : item.iconCss"></div>
+                            <div class="left-menu-item-text">{{item.text}}</div>
+                        </div>
                     </a>
                     <mat-divider class="divider"></mat-divider>
                 </mat-list-item>

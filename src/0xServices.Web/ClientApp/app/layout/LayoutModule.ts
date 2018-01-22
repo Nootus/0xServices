@@ -4,12 +4,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import {
     MatButtonModule, MatDialogModule,
     MatCardModule, MatListModule,
-    MatIconModule
+    MatIconModule, MatTooltipModule
 } from "@angular/material";
 
 import { FabricModule } from "../fabric/FabricModule";
 import { UserModule } from "../user/UserModule";
 
+import { MenuItemComponent } from "./MenuItemComponent";
 import { TopBarComponent } from "./TopBarComponent";
 import { LayoutComponent } from "./LayoutComponent";
 
@@ -22,10 +23,12 @@ import { LayoutComponent } from "./LayoutComponent";
         MatCardModule,
         MatListModule,
         MatIconModule,
+        MatTooltipModule,
         FabricModule,
         UserModule
     ],
     declarations: [
+        MenuItemComponent,
         LayoutComponent,
         TopBarComponent
     ],
