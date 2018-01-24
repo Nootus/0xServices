@@ -27,3 +27,9 @@ body {
 .left-menu-item  .mat-button {
     padding-left: 0px !important;
 }
+
+.menu-item > .mat-list-item-content {
+    padding-left: 8px !important;
+    padding-right: 0px !important;
+}
+

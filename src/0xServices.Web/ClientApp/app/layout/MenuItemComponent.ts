@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { MenuModel } from "./models/MenuModel";
 
@@ -8,9 +8,16 @@ import { MenuModel } from "./models/MenuModel";
     styleUrls: ["./MenuItemComponent.css"]
 })
 export class MenuItemComponent {
-    item: MenuModel
+    @Input() item: MenuModel;
+    @Input() selectedMenu: string;
+    @Output() ntClick: EventEmitter<any> = new EventEmitter();
 
     isSelectedMenu(menuName: string): boolean {
-        return false;
+        return menuName === this.selectedMenu;
+    }
+
+    menuClick(menuName: string, event: MouseEvent) {
+        event.preventDefault();
+        this.ntClick.emit(menuName);
     }
 }

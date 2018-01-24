@@ -21,6 +21,14 @@
     outline: none;
 }
 
+.menu-item > div {
+    padding-left: 8px !important;
+    padding-right: 0px !important;
+}
+
+.menu-item a {
+    padding-left: 0px !important;
+}
 
 .menu-item {
     margin-left: 5px;
