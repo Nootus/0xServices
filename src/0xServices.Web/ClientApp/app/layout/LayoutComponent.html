@@ -3,20 +3,11 @@
     <div fxLayout="row" class="body-content">
         <render-section name="menu" class="left-bar">
             <mat-list class="layout-list">
-                <mat-list-item class="left-menu-item has-hover"
-                               [ngClass]="{'left-menu-item-selected': isSelectedMenu(item.name)}"
-                               *ngFor="let item of menu">
-                    <a mat-button [routerLink]="item.routerUrl"
-                       (click)="menuClick(item.name)" matTooltip="{{item.tooltip}}" matTooltipPosition="right">
-                        <div fxLayout="row" fxLayoutAlign="start center">
-                            <div class="left-menu-item-icon" [ngClass]="isSelectedMenu(item.name)? item.iconCssSelected : item.iconCss"></div>
-                            <div class="left-menu-item-text">{{item.text}}</div>
-                        </div>
-                    </a>
-                    <mat-divider class="divider"></mat-divider>
-                </mat-list-item>
                 <menu-item *ngFor="let item of menu"
-                      [item]="item" (ntClick)="menuClick(item.name)" [selectedMenu]="selectedMenu"></menu-item>
+                      [item]="item" (ntClick)="menuClick(item.name)" 
+                           [selectedMenu]="selectedMenu" position="left">
+
+                </menu-item>
             </mat-list>
         </render-section>
         <div fxFlex>

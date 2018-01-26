@@ -10,14 +10,15 @@ import { MenuModel } from "./models/MenuModel";
 export class MenuItemComponent {
     @Input() item: MenuModel;
     @Input() selectedMenu: string;
+    @Input() position: string;
     @Output() ntClick: EventEmitter<any> = new EventEmitter();
 
-    isSelectedMenu(menuName: string): boolean {
-        return menuName === this.selectedMenu;
+    isSelectedMenu(): boolean {
+        return this.item.name === this.selectedMenu;
     }
 
-    menuClick(menuName: string, event: MouseEvent) {
+    menuClick(event: MouseEvent) {
         event.preventDefault();
-        this.ntClick.emit(menuName);
+        this.ntClick.emit(this.item.name);
     }
 }

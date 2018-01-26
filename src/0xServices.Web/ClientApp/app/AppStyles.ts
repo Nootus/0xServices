@@ -3,7 +3,7 @@
 @Component({
     selector: "app-styles",
     template: "",
-    styleUrls: ["./AppStyles.css"],
+    styleUrls: ["./AppStyles.css", "./AppStylesMenuIcons.css"],
     encapsulation: ViewEncapsulation.None
 })
 export class AppStyles {

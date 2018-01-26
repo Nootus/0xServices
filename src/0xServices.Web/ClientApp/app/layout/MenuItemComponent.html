@@ -1,11 +1,10 @@
 ﻿<mat-list-item class="menu-item has-hover"
-               [ngClass]="{'menu-item-selected': isSelectedMenu(item.name)}">
+               [ngClass]="{'menu-item-selected': isSelectedMenu(), 'left': position === 'left', 'top': position === 'top', 'hover-left': position === 'left', 'hover-below': position === 'top'}">
     <a mat-button [routerLink]="item.routerUrl"
-       (click)="menuClick(item.name, $event)" matTooltip="{{item.tooltip}}" matTooltipPosition="right">
-        <div fxLayout="row" fxLayoutAlign="start center">
-            <div class="menu-item-icon" [ngClass]="isSelectedMenu(item.name)? item.iconCssSelected : item.iconCss"></div>
+       (click)="menuClick($event)" matTooltip="{{item.tooltip}}" matTooltipPosition="{{item.tooltipPosition}}">
+        <div fxLayout="row" fxLayoutAlign="start center" class="menu-item-content">
+            <div class="menu-item-icon" [ngClass]="item.iconCss"></div>
             <div class="menu-item-text">{{item.text}}</div>
         </div>
     </a>
-    <mat-divider class="menu-divider"></mat-divider>
 </mat-list-item>
