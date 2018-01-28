@@ -13,10 +13,6 @@ export class MenuItemComponent {
     @Input() position: string;
     @Output() ntClick: EventEmitter<any> = new EventEmitter();
 
-    isSelectedMenu(): boolean {
-        return this.item.name === this.selectedMenu;
-    }
-
     menuClick(event: MouseEvent) {
         event.preventDefault();
         this.ntClick.emit(this.item.name);

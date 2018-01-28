@@ -10,9 +10,9 @@
     color: #00bcf2;
     width: 150px;
     font-size: 20px;
-    padding-left: 12px;
     height: 100%;
     line-height: 40px;
+    text-decoration: none;
 }
 
 .top-bar-item {
@@ -21,10 +21,19 @@
     height: 40px;
 }
 
+.logo {
+    height: 30px;
+    width: 30px;
+}
+
 .avatar {
     z-index: 200;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 6px;
+    padding-top: 7px;
+    padding-bottom: 2px;
 }
 
 .avatar-name {

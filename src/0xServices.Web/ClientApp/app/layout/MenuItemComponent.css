@@ -20,26 +20,30 @@
 }
 
 .menu-item {
-    margin-left: 5px;
     display: inline-block;
     width: 100%;
     border-bottom: 1px solid rgba(255,255,255,.12);
     text-align: center;
 }
 
-.menu-item.top {
-    margin-top: 3px;
-    border-left: 1px solid rgba(255,255,255, .4);
+.menu-item.left {
+    margin-left: 5px;
 }
-
 .menu-item.hover-left:hover {
     border-left: 5px solid #00bcf2;
     margin-left: 0px;
 }
 
+
+.menu-item.top {
+    margin-top: 5px;
+    height: 40px;
+    border-left: 1px solid rgba(128,128,128,.4);
+}
+
 .menu-item.hover-below:hover {
+    margin-top: 5px;
     border-bottom: 5px solid #00bcf2;
-    margin-top: 7px;
 }
 
 .menu-item-selected {
@@ -65,4 +69,16 @@
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
+}
+
+.register-icon {
+    width: 36px !important;
+}
+
+.change-password-icon {
+    width: 39px !important;
+}
+
+.logout-icon {
+    width: 35px !important;
 }

@@ -1,0 +1,29 @@
+﻿mat-card {
+    background-color: #202428;
+    color: white;
+    height: 100%;
+}
+
+    mat-card.how-it-works {
+        background-color: #ddd;
+        color: black;
+    }
+    
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.how-it-works a {
+    color: black;
+}
+
+.icon {
+    width: 100%;
+    height: 75px;
+    background-size: 100% 75px;
+}
+
+h6 {
+    font-size: 20px;
+}

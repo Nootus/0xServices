@@ -6,12 +6,13 @@ import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { FabricModule } from "./fabric/FabricModule";
+import { AppRouteModule } from "./AppRouteModule";
+import { HomeModule } from "./home/HomeModule";
 import { LayoutModule } from "./layout/LayoutModule";
 
 import { AppComponent } from "./AppComponent";
 import { AppStyles } from "./AppStyles";
 
-import { HomeComponent } from "./components/home/home.component";
 import { FetchDataComponent } from "./components/fetchdata/fetchdata.component";
 import { CounterComponent } from "./components/counter/counter.component";
 
@@ -20,8 +21,7 @@ import { CounterComponent } from "./components/counter/counter.component";
         AppComponent,
         AppStyles,
         CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+        FetchDataComponent
     ],
     imports: [
         CommonModule,
@@ -30,15 +30,10 @@ import { CounterComponent } from "./components/counter/counter.component";
         FlexLayoutModule,
 
         FabricModule,
+        AppRouteModule,
+        HomeModule,
         LayoutModule,
 
-        RouterModule.forRoot([
-            { path: "", redirectTo: "home", pathMatch: "full" },
-            { path: "home", component: HomeComponent },
-            { path: "counter", component: CounterComponent },
-            { path: "fetch-data", component: FetchDataComponent },
-            { path: "**", redirectTo: "home" }
-        ])
     ]
 })
 export class AppModuleShared {
