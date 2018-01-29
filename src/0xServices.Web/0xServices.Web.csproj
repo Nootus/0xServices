@@ -62,6 +62,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web\Nootus.Fabric.Web.csproj" />
+    <ProjectReference Include="..\0xServices.Web.Contract\0xServices.Web.Contract.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0xServices.Web", "src\0xServices.Web\0xServices.Web.csproj", "{E6A5CD8E-D5B9-4A7C-905E-8BD2D6D885D7}"
 EndProject
@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stylecop", "Stylecop", "{E2
 		stylecop.ruleset = stylecop.ruleset
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0xServices.Web.Contract", "src\0xServices.Web.Contract\0xServices.Web.Contract.csproj", "{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{B063E8D5-5F99-4176-B62A-AD188DB5D75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B063E8D5-5F99-4176-B62A-AD188DB5D75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B063E8D5-5F99-4176-B62A-AD188DB5D75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{9C8F18DF-9636-447B-B774-13540E0BF6A4} = {37CFC41C-4AA5-47E3-8DE6-9E9886CAD104}
 		{E626446C-1630-493C-8B70-10595895AD9A} = {37CFC41C-4AA5-47E3-8DE6-9E9886CAD104}
 		{B063E8D5-5F99-4176-B62A-AD188DB5D75B} = {37CFC41C-4AA5-47E3-8DE6-9E9886CAD104}
+		{EAF76F1B-CB69-47D3-A837-CE8D808B3EC1} = {45FF4477-C80B-43F5-A0D9-BA7CAB661472}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {990A1F0E-04FF-432B-AA0C-07B4B939E9E2}

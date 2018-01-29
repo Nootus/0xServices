@@ -8,7 +8,6 @@
 //-------------------------------------------------------------------------------------------------
 namespace _0xServices.Web.Controllers
 {
-    using System.Diagnostics;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : Controller
