@@ -52,6 +52,7 @@
     <None Remove="ClientApp\app\fabric\validator\MatchOtherValidator.ts" />
     <None Remove="ClientApp\app\fabric\validator\NTValidators.ts" />
     <None Remove="ClientApp\app\home\HowItWorksComponent.ts" />
+    <None Remove="ClientApp\app\job\JobModule.ts" />
     <None Remove="ClientApp\app\layout\MenuItemComponent.ts" />
     <None Remove="ClientApp\app\layout\models\MenuModel.ts" />
     <None Remove="ClientApp\app\user\ChangePasswordDialogComponent.ts" />
@@ -97,6 +98,7 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\validator\MatchOtherValidator.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\validator\NTValidators.ts" />
     <TypeScriptCompile Include="ClientApp\app\home\HowItWorksComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\job\JobModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\MenuItemComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\models\MenuModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\ChangePasswordDialogComponent.ts" />

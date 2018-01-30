@@ -15,6 +15,7 @@ namespace _0xServices.Web.Contract.Controllers
     using Nootus.Fabric.Web.Core.Helpers.Web;
     using Nootus.Fabric.Web.Core.Models.Web;
 
+    [Microsoft.AspNetCore.Authorization.AllowAnonymous]
     public class ContractController : Controller
     {
         private ContractDomain domain;
@@ -25,9 +26,9 @@ namespace _0xServices.Web.Contract.Controllers
         }
 
         [HttpGet]
-        public async Task<AjaxModel<JobDomainDataModel>> JobDomainDataGet()
+        public async Task<AjaxModel<JobDomainDataModel>> JobDomainData()
         {
-            return await AjaxHelper.GetAsync(m => this.domain.JobDomainDataGet());
+            return await AjaxHelper.GetAsync(m => this.domain.JobDomainData());
         }
     }
 }

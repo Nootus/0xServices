@@ -21,7 +21,7 @@ namespace _0xServices.Web.Contract.Repositories
             this.DbContext = dbContext;
         }
 
-        public async Task<List<ListItem<int, string>>> ContractCategoryListItemsGet()
+        public async Task<List<ListItem<int, string>>> ContractCategoryListItems()
         {
             return await this.GetListItemsAsync<ContractCategoryEntity>(e => new ListItem<int, string> { Key = e.ContractCategoryId, Item = e.Name }, s => s.Name);
         }

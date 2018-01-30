@@ -23,16 +23,11 @@ namespace _0xServices.Web.Contract.Domains
             this.contractRepository = contractRepository;
         }
 
-        public async Task<List<ListItem<int, string>>> ContractCategoryListItemsGet()
-        {
-            return await this.contractRepository.ContractCategoryListItemsGet();
-        }
-
-        public async Task<JobDomainDataModel> JobDomainDataGet()
+        public async Task<JobDomainDataModel> JobDomainData()
         {
             JobDomainDataModel model = new JobDomainDataModel
             {
-                ContractCategoris = await this.contractRepository.ContractCategoryListItemsGet(),
+                ContractCategoris = await this.contractRepository.ContractCategoryListItems(),
             };
 
             return model;
