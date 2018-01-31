@@ -16,11 +16,11 @@ namespace _0xServices.Web.Contract.Controllers
     using Nootus.Fabric.Web.Core.Models.Web;
 
     [Microsoft.AspNetCore.Authorization.AllowAnonymous]
-    public class ContractController : Controller
+    public class JobController : Controller
     {
-        private ContractDomain domain;
+        private JobDomain domain;
 
-        public ContractController(ContractDomain domain)
+        public JobController(JobDomain domain)
         {
             this.domain = domain;
         }

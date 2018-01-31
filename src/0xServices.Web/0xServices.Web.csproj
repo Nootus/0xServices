@@ -53,6 +53,7 @@
     <None Remove="ClientApp\app\fabric\validator\NTValidators.ts" />
     <None Remove="ClientApp\app\home\HowItWorksComponent.ts" />
     <None Remove="ClientApp\app\job\JobModule.ts" />
+    <None Remove="ClientApp\app\job\JobPostComponent.ts" />
     <None Remove="ClientApp\app\layout\MenuItemComponent.ts" />
     <None Remove="ClientApp\app\layout\models\MenuModel.ts" />
     <None Remove="ClientApp\app\user\ChangePasswordDialogComponent.ts" />
@@ -64,6 +65,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web\Nootus.Fabric.Web.csproj" />
     <ProjectReference Include="..\0xServices.Web.Contract\0xServices.Web.Contract.csproj" />
+    <ProjectReference Include="..\0xServices.Web.Core\0xServices.Web.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -99,6 +101,7 @@
     <TypeScriptCompile Include="ClientApp\app\fabric\validator\NTValidators.ts" />
     <TypeScriptCompile Include="ClientApp\app\home\HowItWorksComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\job\JobModule.ts" />
+    <TypeScriptCompile Include="ClientApp\app\job\JobPostComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\MenuItemComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\models\MenuModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\ChangePasswordDialogComponent.ts" />

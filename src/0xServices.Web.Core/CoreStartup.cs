@@ -1,24 +1,24 @@
 ﻿//-------------------------------------------------------------------------------------------------
-// <copyright file="ContractStartup.cs" company="Nootus">
+// <copyright file="CoreStartup.cs" company="Nootus">
 //  Copyright (c) Nootus. All rights reserved.
 // </copyright>
 // <description>
 //  Startup for Contract module
 // </description>
 //-------------------------------------------------------------------------------------------------
-namespace _0xServices.Web.Contract
+namespace _0xServices.Web.Core
 {
-    using _0xServices.Web.Contract.Domains;
-    using _0xServices.Web.Contract.Repositories;
+    using _0xServices.Web.Core.Domains;
+    using _0xServices.Web.Core.Repositories;
     using Microsoft.Extensions.DependencyInjection;
     using Nootus.Fabric.Web.Core;
 
-    public class ContractStartup : ModuleStartup<ContractDbContext>
+    public class CoreStartup : ModuleStartup<CoreDbContext>
     {
         public override void ConfigureDependencyInjection(IServiceCollection services)
         {
-            services.AddTransient<JobDomain>();
-            services.AddTransient<ContractRepository>();
+            services.AddTransient<UserDomain>();
+            services.AddTransient<CoreRepository>();
         }
     }
 }

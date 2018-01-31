@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web.Core\Nootus.Fabric.Web.Core.csproj" />
+    <ProjectReference Include="..\..\..\Fabric\src\Nootus.Fabric.Web.Security\Nootus.Fabric.Web.Security.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+</Project>

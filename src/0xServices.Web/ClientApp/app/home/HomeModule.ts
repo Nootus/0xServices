@@ -26,9 +26,6 @@ import { FooterComponent } from "./FooterComponent";
         HowItWorksComponent,
         SectionItemComponent,
         FooterComponent
-    ],
-    exports: [
-        HomeComponent
     ]
 })
 export class HomeModule {

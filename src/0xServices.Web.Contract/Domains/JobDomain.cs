@@ -14,11 +14,11 @@ namespace _0xServices.Web.Contract.Domains
     using _0xServices.Web.Contract.Repositories;
     using Nootus.Fabric.Web.Core.Models;
 
-    public class ContractDomain
+    public class JobDomain
     {
         private ContractRepository contractRepository;
 
-        public ContractDomain(ContractRepository contractRepository)
+        public JobDomain(ContractRepository contractRepository)
         {
             this.contractRepository = contractRepository;
         }

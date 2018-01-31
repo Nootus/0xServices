@@ -2,7 +2,7 @@
 import { RouterModule } from "@angular/router";
 
 import { HomeComponent } from "./home/HomeComponent";
-import { FetchDataComponent } from "./components/fetchdata/fetchdata.component";
+import { JobPostComponent } from "./job/JobPostComponent";
 import { CounterComponent } from "./components/counter/counter.component";
 
 @NgModule({
@@ -11,7 +11,7 @@ import { CounterComponent } from "./components/counter/counter.component";
             { path: "", redirectTo: "home", pathMatch: "full" },
             { path: "home", component: HomeComponent },
             { path: "search", component: CounterComponent },
-            { path: "post", component: FetchDataComponent },
+            { path: "post", component: JobPostComponent },
             { path: "**", redirectTo: "home" }
         ])
     ]

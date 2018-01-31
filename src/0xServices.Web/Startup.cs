@@ -10,6 +10,7 @@ namespace _0xServices.Web
 {
     using System.Collections.Generic;
     using _0xServices.Web.Contract;
+    using _0xServices.Web.Core;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Nootus.Fabric.Web;
@@ -19,6 +20,7 @@ namespace _0xServices.Web
     {
         private List<IModuleStartup> appModules = new List<IModuleStartup>
         {
+            new CoreStartup(),
             new ContractStartup(),
         };
 

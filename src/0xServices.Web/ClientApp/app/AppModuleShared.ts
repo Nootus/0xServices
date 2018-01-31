@@ -9,6 +9,7 @@ import { FabricModule } from "./fabric/FabricModule";
 import { AppRouteModule } from "./AppRouteModule";
 import { HomeModule } from "./home/HomeModule";
 import { LayoutModule } from "./layout/LayoutModule";
+import { JobModule } from "./job/JobModule";
 
 import { AppComponent } from "./AppComponent";
 import { AppStyles } from "./AppStyles";
@@ -33,7 +34,7 @@ import { CounterComponent } from "./components/counter/counter.component";
         AppRouteModule,
         HomeModule,
         LayoutModule,
-
+        JobModule
     ]
 })
 export class AppModuleShared {
