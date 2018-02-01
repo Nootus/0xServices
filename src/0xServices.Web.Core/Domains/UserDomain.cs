@@ -29,7 +29,7 @@ namespace _0xServices.Web.Core.Domains
         public async Task<ProfileModel> Register(RegisterUserModel model)
         {
             ProfileModel profile = await this.accountDomain.Register(model);
-
+            await this.coreRepository.UserSave(model);
             return profile;
         }
     }

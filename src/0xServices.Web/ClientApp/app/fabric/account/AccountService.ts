@@ -17,7 +17,7 @@ export class AccountService {
     }
 
     public register(model: RegisterUserModel): Observable<ProfileModel> {
-        return this.http.post<ProfileModel>("/api/account/register", model)
+        return this.http.post<ProfileModel>("/api/user/register", model)
             .pipe(
             tap((data: ProfileModel) => {
                 this.profile.populate(data);

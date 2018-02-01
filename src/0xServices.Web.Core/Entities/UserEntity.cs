@@ -30,9 +30,10 @@ namespace _0xServices.Web.Core.Entities
 
         public string EthPassword { get; set; }
 
-        public double ZeroXBalance { get; set; }
+        [Column("0xBalance")]
+        public double ZeroXBalance { get; set; } = 0;
 
-        public double EthBalance { get; set; }
+        public double EthBalance { get; set; } = 0;
 
         public string Skills { get; set; }
 

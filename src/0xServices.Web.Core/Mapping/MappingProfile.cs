@@ -16,7 +16,9 @@ namespace _0xServices.Web.Core.Mapping
     {
         public MappingProfile()
         {
-            this.CreateMap<UserEntity, RegisterUserModel>().ReverseMap();
+            this.CreateMap<RegisterUserModel, UserEntity>(MemberList.Source)
+                .ForSourceMember(src => src.ConfirmPassword, opt => opt.Ignore())
+                .ForMember(dest => dest.EmailAddress, opt => opt.MapFrom(src => src.UserName));
         }
 
         public override string ProfileName
