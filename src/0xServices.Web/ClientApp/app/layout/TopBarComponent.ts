@@ -12,10 +12,10 @@ import { MenuModel } from "./models/MenuModel";
 })
 export class TopBarComponent {
 
-    registerMenuItem: MenuModel = { name: "register", text: "Register", routerUrl: "#", iconCss: "register-icon", tooltip: "Register a new User", tooltipPosition: "below" };
-    loginMenuItem: MenuModel = { name: "login", text: "Login", routerUrl: "#", iconCss: "login-icon", tooltip: "Login", tooltipPosition: "below" };
-    changePasswordMenuItem: MenuModel = { name: "changePassword", text: "Change Password", routerUrl: "#", iconCss: "change-password-icon", tooltip: "Change Password", tooltipPosition: "below" };
-    logoutMenuItem: MenuModel = { name: "logout", text: "Logout", routerUrl: "#", iconCss: "logout-icon", tooltip: "Logout", tooltipPosition: "below" };
+    registerMenuItem: MenuModel = { name: "register", text: "Register", routerUrl: undefined, iconCss: "register-icon", tooltip: "Register a new User", tooltipPosition: "below" };
+    loginMenuItem: MenuModel = { name: "login", text: "Login", routerUrl: undefined, iconCss: "login-icon", tooltip: "Login", tooltipPosition: "below" };
+    changePasswordMenuItem: MenuModel = { name: "changePassword", text: "Change Password", routerUrl: undefined, iconCss: "change-password-icon", tooltip: "Change Password", tooltipPosition: "below" };
+    logoutMenuItem: MenuModel = { name: "logout", text: "Logout", routerUrl: undefined, iconCss: "logout-icon", tooltip: "Logout", tooltipPosition: "below" };
 
 
     constructor(private userDialogService: UserDialogService,

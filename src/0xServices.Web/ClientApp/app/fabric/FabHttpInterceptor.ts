@@ -84,6 +84,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
                 if (err.status === 403) {
                     this.snackBarService.showError(this.message.unAuthorized);
                 } else {
+                    console.error(err.message);
                     this.snackBarService.showError(err.message);
                 }
                 return Observable.empty();

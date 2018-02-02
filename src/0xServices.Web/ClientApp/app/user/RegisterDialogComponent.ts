@@ -21,11 +21,11 @@ export class RegisterDialogComponent {
     constructor(private fb: FormBuilder,
         private accountService: AccountService) {
         this.registerForm = fb.group({
-            firstName: ["pp", [Validators.required, Validators.maxLength(100)]],
-            lastName: ["pp", [Validators.required, Validators.maxLength(100)]],
-            userName: ["prasanna@nootus.com", [Validators.required, Validators.maxLength(100), Validators.email]],
-            password: ["pp", [Validators.required, Validators.maxLength(20)]],
-            confirmPassword: ["pp", [Validators.required, Validators.maxLength(20), NTValidators.mathchOther("password", ValidationMessage.confirmPasswordMismatch)]]
+            firstName: ["Prasanna", [Validators.required, Validators.maxLength(100)]],
+            lastName: ["Kumar", [Validators.required, Validators.maxLength(100)]],
+            userName: ["pprasannak@yahoo.com", [Validators.required, Validators.maxLength(100), Validators.email]],
+            password: ["Nootus@123", [Validators.required, Validators.maxLength(20)]],
+            confirmPassword: ["Nootus@123", [Validators.required, Validators.maxLength(20), NTValidators.mathchOther("password", ValidationMessage.confirmPasswordMismatch)]]
         });
     }
 

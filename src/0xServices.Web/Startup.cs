@@ -27,7 +27,7 @@ namespace _0xServices.Web
         public Startup(IConfiguration configuration, IHostingEnvironment env)
             : base(configuration, env)
         {
-            base.Startup(this.appModules);
+            this.Initialize(this.appModules);
         }
     }
 }

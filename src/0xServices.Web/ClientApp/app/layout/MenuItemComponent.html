@@ -1,5 +1,5 @@
 ﻿<mat-list-item class="menu-item has-hover"
-               routerLinkActive="menu-item-selected"
+               [routerLinkActive]="item.routerUrl !== undefined? 'menu-item-selected': ''"
                [ngClass]="{'left': position === 'left', 'top': position === 'top', 'hover-left': position === 'left', 'hover-below': position === 'top'}">
     <a mat-button [routerLink]="item.routerUrl" 
        (click)="menuClick($event)" matTooltip="{{item.tooltip}}" matTooltipPosition="{{item.tooltipPosition}}">
