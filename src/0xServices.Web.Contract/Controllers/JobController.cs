@@ -9,6 +9,7 @@
 namespace _0xServices.Web.Contract.Controllers
 {
     using System.Threading.Tasks;
+    using _0xServices.Web.Contract.Common;
     using _0xServices.Web.Contract.Domains;
     using _0xServices.Web.Contract.Models;
     using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,11 @@ namespace _0xServices.Web.Contract.Controllers
         public async Task<AjaxModel<JobDomainDataModel>> JobDomainData()
         {
             return await AjaxHelper.GetAsync(m => this.domain.JobDomainData());
+        }
+
+        public async Task PostJob(JobPostModel model)
+        {
+            await AjaxHelper.SaveAsync(m => this.domain.PostJob(model), Messages.JobPostSuccess);
         }
     }
 }

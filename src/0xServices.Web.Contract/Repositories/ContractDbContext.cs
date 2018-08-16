@@ -20,5 +20,7 @@ namespace _0xServices.Web.Contract.Repositories
         }
 
         public DbSet<ContractCategoryEntity> ContractCategories { get; set; }
+
+        public DbSet<ContractEntity> Contracts { get; set; }
     }
 }

@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" />
   </ItemGroup>
 
@@ -24,8 +24,9 @@
   <ItemGroup>
     <None Remove="ClientApp\app\AppStyles.ts" />
     <None Remove="ClientApp\app\core\controls\ControlModule.ts" />
-    <None Remove="ClientApp\app\core\controls\NTFormComponent.ts" />
-    <None Remove="ClientApp\app\core\controls\NtInputComponent.ts" />
+    <None Remove="ClientApp\app\core\controls\ErrorComponent.ts" />
+    <None Remove="ClientApp\app\core\controls\FormComponent.ts" />
+    <None Remove="ClientApp\app\core\controls\InputComponent.ts" />
     <None Remove="ClientApp\app\core\messages\ValidationMessage.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountModule.ts" />
     <None Remove="ClientApp\app\fabric\account\AccountService.ts" />
@@ -54,6 +55,7 @@
     <None Remove="ClientApp\app\home\HowItWorksComponent.ts" />
     <None Remove="ClientApp\app\job\JobModule.ts" />
     <None Remove="ClientApp\app\job\JobPostComponent.ts" />
+    <None Remove="ClientApp\app\job\models\JobPostModel.ts" />
     <None Remove="ClientApp\app\layout\MenuItemComponent.ts" />
     <None Remove="ClientApp\app\layout\models\MenuModel.ts" />
     <None Remove="ClientApp\app\user\ChangePasswordDialogComponent.ts" />
@@ -71,8 +73,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\AppStyles.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\controls\ControlModule.ts" />
-    <TypeScriptCompile Include="ClientApp\app\core\controls\NTFormComponent.ts" />
-    <TypeScriptCompile Include="ClientApp\app\core\controls\NTInputComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\ErrorComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\FormComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\controls\InputComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\messages\ValidationMessage.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\fabric\account\AccountService.ts" />
@@ -102,6 +105,7 @@
     <TypeScriptCompile Include="ClientApp\app\home\HowItWorksComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\job\JobModule.ts" />
     <TypeScriptCompile Include="ClientApp\app\job\JobPostComponent.ts" />
+    <TypeScriptCompile Include="ClientApp\app\job\models\JobPostModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\MenuItemComponent.ts" />
     <TypeScriptCompile Include="ClientApp\app\layout\models\MenuModel.ts" />
     <TypeScriptCompile Include="ClientApp\app\user\ChangePasswordDialogComponent.ts" />

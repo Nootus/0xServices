@@ -32,5 +32,10 @@ namespace _0xServices.Web.Contract.Domains
 
             return model;
         }
+
+        public async Task PostJob(JobPostModel model)
+        {
+
+        }
     }
 }

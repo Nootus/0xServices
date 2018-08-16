@@ -15,5 +15,9 @@ namespace _0xServices.Web.Contract.Models
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        public int ContractCategoryId { get; set; }
+
+        public double? BudgetAmount { get; set; }
     }
 }

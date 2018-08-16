@@ -6,10 +6,10 @@ import { ValidationMessage } from "../messages/ValidationMessage";
 
 @Component({
     selector: "nt-input",
-    templateUrl: "./NTInputComponent.html",
-    styleUrls: ["./NTInputComponent.css"]
+    templateUrl: "./InputComponent.html",
+    styleUrls: ["./InputComponent.css"]
 })
-export class NTInputComponent  {
+export class InputComponent  {
     @Input() formGroup: FormGroup;
     @Input() controlName: string;
     @Input() type: string = "text";
@@ -17,9 +17,6 @@ export class NTInputComponent  {
     @Input() hintLabel: string;
 
     matcher: NTErrorStateMatcher = new NTErrorStateMatcher();
-
-    constructor() {
-    }
 
     getErrorMessage(): string {
         let control: AbstractControl = this.formGroup.controls[this.controlName];
@@ -30,7 +27,6 @@ export class NTInputComponent  {
                 if (control.errors[key].custom === true) {
                     return control.errors[key].message;
                 }
-
             }
         }
 

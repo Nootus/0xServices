@@ -10,5 +10,6 @@ namespace _0xServices.Web.Contract.Common
 {
     public static class Messages
     {
+        public const string JobPostSuccess = "Job posted successfully";
     }
 }

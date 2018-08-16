@@ -3,9 +3,9 @@ import { FormGroup, FormGroupDirective } from "@angular/forms";
 
 @Component({
     selector: "nt-form",
-    templateUrl: "./NTFormComponent.html"
+    templateUrl: "./FormComponent.html"
 })
-export class NTFormComponent implements OnInit {
+export class FormComponent implements OnInit {
     @Input() formGroup: FormGroup;
     @Input() cssClass: string;
     @Output() ntSubmit: EventEmitter<any> = new EventEmitter();
