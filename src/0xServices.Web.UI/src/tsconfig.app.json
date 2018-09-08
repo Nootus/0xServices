@@ -6,6 +6,19 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "app/components/**/*.ts",
+    "app/core/**/*.ts",
+    "app/fabric/**/*.ts",
+    "app/job/**/*.ts",
+    "app/layout/**/*.ts",
+    "app/user/**/*.ts",
+    "app/home/**/*.ts",
+    "app/AppComponent.ts",
+    "app/AppModuleBrowser.ts",
+    "app/AppModuleServer.ts",
+    "app/AppModuleShared.ts",
+    "app/AppRouteModule.ts",
+    "app/AppStyles.ts"
   ]
 }
