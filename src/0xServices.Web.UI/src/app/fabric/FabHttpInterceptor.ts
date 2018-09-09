@@ -1,13 +1,8 @@
 ﻿import { Injectable, Inject } from "@angular/core";
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/observable/of";
-import "rxjs/add/observable/empty";
-import "rxjs/add/observable/throw";
+import { Observable, of, empty, throwError } from "rxjs";
 
-import { catchError } from "rxjs/operators/catchError";
-import { switchMap } from "rxjs/operators/switchMap";
-import { filter } from "rxjs/operators/filter";
+import { catchError, switchMap, filter } from "rxjs/operators";
 
 import { SnackBarService } from "./notification/SnackBarService";
 import { Profile } from "./account/Profile";
@@ -57,9 +52,9 @@ export class FabHttpInterceptor implements HttpInterceptor {
                 if (response.body.hasOwnProperty("result") && response.body.hasOwnProperty("message") && response.body.hasOwnProperty("model")) {
                     switch (response.body.result) {
                         case 1: // unhandled exceptions in C#
-                            return Observable.throw({ message: response.body.message });
+                            return throwError({ message: response.body.message });
                         case 2: //validation error messages
-                            return Observable.throw(new NTException(response.body.message, response.body.errors));
+                            return throwError(new NTException(response.body.message, response.body.errors));
                         default:
                             this.snackBarService.showSuccess(response.body.message);
                             var data = undefined;
@@ -72,14 +67,14 @@ export class FabHttpInterceptor implements HttpInterceptor {
                                     dashboard: response.body.dashboard
                                 }
                             }
-                            return Observable.of(response.clone({ body: data }));
+                            return of(response.clone({ body: data }));
                     }
                 }
-                return Observable.empty();
+                return empty();
             }),
             catchError((err: HttpErrorResponse) => {
                 if (err instanceof NTException) {
-                    return Observable.throw(err);
+                    return throwError(err);
                 }
                 if (err.status === 403) {
                     this.snackBarService.showError(this.message.unAuthorized);
@@ -87,7 +82,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
                     console.error(err.message);
                     this.snackBarService.showError(err.message);
                 }
-                return Observable.empty();
+                return empty();
             }));
     }
 }

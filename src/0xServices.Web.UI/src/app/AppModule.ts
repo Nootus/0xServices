@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
@@ -25,7 +25,7 @@ import { CounterComponent } from "./components/counter/counter.component";
         FetchDataComponent
     ],
     imports: [
-        CommonModule,
+        BrowserModule,
         HttpModule,
         FormsModule,
         FlexLayoutModule,
@@ -35,7 +35,8 @@ import { CounterComponent } from "./components/counter/counter.component";
         HomeModule,
         LayoutModule,
         JobModule
-    ]
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModuleShared {
+export class AppModule {
 }

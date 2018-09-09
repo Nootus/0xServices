@@ -2,9 +2,8 @@
 import { FormGroup, NgForm, FormGroupDirective } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
-import { Observable } from "rxjs/Observable";
-import { catchError } from "rxjs/operators/catchError";
-import "rxjs/add/observable/empty";
+import { Observable, empty } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 import { NTException } from "../fabric/exception/NtException";
 import { NTError } from "../fabric/exception/NtError";
@@ -48,7 +47,7 @@ export class UserDialogComponent<TDialogComponent> {
                 this.errorMessage = exp.message;
                 this.errors = exp.errors;
                 this.showError = true;
-                return Observable.empty();
+                return empty();
             }))
             .subscribe(() => {
                 this.close();

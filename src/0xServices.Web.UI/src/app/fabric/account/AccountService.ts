@@ -7,8 +7,8 @@ import { LoginModel } from "./models/LoginModel";
 import { ChangePasswordModel } from "./models/ChangePasswordModel";
 import { RegisterUserModel } from "./models/RegisterUserModel";
 
-import { Observable } from "rxjs/Observable";
-import { tap } from "rxjs/operators/tap";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Injectable()
 export class AccountService {
