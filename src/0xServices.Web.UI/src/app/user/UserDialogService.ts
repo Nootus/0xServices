@@ -14,7 +14,7 @@ export class UserDialogService {
 
     login() : void {
         let dialogRef: MatDialogRef<LoginDialogComponent> = this.dialog.open(LoginDialogComponent, {
-            panelClass: "user-dialog"
+            panelClass: "login-dialog"
         });
 
         dialogRef.afterClosed().subscribe();
@@ -22,7 +22,7 @@ export class UserDialogService {
 
     register(): void {
         let dialogRef: MatDialogRef<RegisterDialogComponent> = this.dialog.open(RegisterDialogComponent, {
-            panelClass: "user-dialog"
+            panelClass: "register-dialog"
         });
 
         dialogRef.afterClosed().subscribe();
@@ -30,7 +30,7 @@ export class UserDialogService {
 
     changePassword(): void {
         let dialogRef: MatDialogRef<ChangePasswordDialogComponent> = this.dialog.open(ChangePasswordDialogComponent, {
-            panelClass: "user-dialog"
+            panelClass: "password-dialog"
         });
 
         dialogRef.afterClosed().subscribe();
