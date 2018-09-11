@@ -6,7 +6,6 @@ import { catchError, switchMap, filter } from "rxjs/operators";
 
 import { SnackBarService } from "./notification/SnackBarService";
 import { Profile } from "./account/Profile";
-import { ProfileModel } from "./account/models/ProfileModel";
 import { NTException } from "./exception/NtException";
 import { Message } from "./Message";
 
@@ -15,14 +14,14 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
     private rawApiUrl: string = "/api/";
     private apiUrl: string;
-
+    private apiBaseUrl: string = "http://localhost:50378";
 
     constructor(private profile: Profile,
         @Inject("BASE_URL") private baseUrl: string,
         private snackBarService: SnackBarService,
         private message: Message) {
         this.baseUrl = baseUrl.charAt(baseUrl.length - 1) === "/" ? baseUrl.substr(0, baseUrl.length - 1) : baseUrl;
-        this.apiUrl = this.baseUrl + "/api/"
+        this.apiUrl = this.apiBaseUrl + "/api/"
     }
 
 
@@ -32,7 +31,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
         let headers: HttpHeaders = req.headers;
 
         if (url.indexOf(this.rawApiUrl) === 0) {
-            url = this.baseUrl + url;
+            url = this.apiBaseUrl + url;
         }
 
         if (url.indexOf(this.apiUrl) === 0) {
