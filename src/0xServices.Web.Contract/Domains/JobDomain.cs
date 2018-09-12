@@ -8,7 +8,6 @@
 //-------------------------------------------------------------------------------------------------
 namespace _0xServices.Web.Contract.Domains
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using _0xServices.Web.Contract.Models;
     using _0xServices.Web.Contract.Repositories;

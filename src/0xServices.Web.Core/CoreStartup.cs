@@ -8,15 +8,23 @@
 //-------------------------------------------------------------------------------------------------
 namespace _0xServices.Web.Core
 {
+    using _0xServices.Web.Core.Common;
     using _0xServices.Web.Core.Domains;
     using _0xServices.Web.Core.Repositories;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Nootus.Fabric.Web.Core;
 
     public class CoreStartup : ModuleStartup<CoreDbContext>
     {
+        public override void Startup(IConfiguration configuration)
+        {
+            base.Startup(configuration);
+            AppSettings.AppBaseUrl = configuration.GetSection("Settings").GetValue<string>("AppBaseUrl");
+        }
+
         public override void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
@@ -26,7 +34,7 @@ namespace _0xServices.Web.Core
         public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+                builder.WithOrigins(AppSettings.AppBaseUrl).AllowAnyMethod().AllowAnyHeader());
             base.Configure(app, env);
         }
 

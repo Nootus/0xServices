@@ -14,7 +14,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
     private rawApiUrl: string = "/api/";
     private apiUrl: string;
-    private apiBaseUrl: string = "http://localhost:50378";
+    private apiBaseUrl: string = "http://localhost:4000";
 
     constructor(private profile: Profile,
         @Inject("BASE_URL") private baseUrl: string,

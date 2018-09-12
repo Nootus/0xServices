@@ -1,15 +1,15 @@
 ﻿//-------------------------------------------------------------------------------------------------
-// <copyright file="Messages.cs" company="Nootus">
+// <copyright file="AppSettings.cs" company="Nootus">
 //  Copyright (c) Nootus. All rights reserved.
 // </copyright>
 // <description>
-//  Messages used in the Contract module
+//  Static class to store application settings
 // </description>
 //-------------------------------------------------------------------------------------------------
-namespace _0xServices.Web.Contract.Common
+namespace _0xServices.Web.Core.Common
 {
-    public static class Messages
+    public static class AppSettings
     {
-        public const string JobPostSuccess = "Job posted successfully";
+        public static string AppBaseUrl { get; set; }
     }
 }
