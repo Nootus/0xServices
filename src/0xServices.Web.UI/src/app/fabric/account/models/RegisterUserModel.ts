@@ -1,5 +1,5 @@
 ﻿export class RegisterUserModel {
-    FirstName: string 
+    FirstName: string;
     LastName: string; 
     UserName: string;
     Password: string;

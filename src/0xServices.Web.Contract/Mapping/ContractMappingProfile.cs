@@ -17,6 +17,7 @@ namespace _0xServices.Web.Contract.Mapping
         public ContractMappingProfile()
         {
             this.CreateMap<ContractCategoryEntity, ContractCategoryModel>().ReverseMap();
+            this.CreateMap<ContractEntity, JobPostModel>(MemberList.Destination).ReverseMap();
         }
 
         public override string ProfileName

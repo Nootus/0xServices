@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
 
 import { FabricModule } from "./fabric/FabricModule";
 import { AppRouteModule } from "./AppRouteModule";
@@ -24,7 +23,6 @@ import { CounterComponent } from "./components/counter/counter.component";
     ],
     imports: [
         BrowserModule,
-        HttpModule,
         FormsModule,
 
         FabricModule,
@@ -34,13 +32,8 @@ import { CounterComponent } from "./components/counter/counter.component";
         JobModule
     ],
     providers: [
-        { provide: "BASE_URL", useFactory: getBaseUrl }
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
-}
-
-export function getBaseUrl() {
-    return document.getElementsByTagName("base")[0].href;
 }

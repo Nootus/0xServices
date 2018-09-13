@@ -1,14 +1,13 @@
 ﻿import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 
 import { Profile } from "./Profile";
 import { ProfileModel } from "./models/ProfileModel";
 import { LoginModel } from "./models/LoginModel";
 import { ChangePasswordModel } from "./models/ChangePasswordModel";
 import { RegisterUserModel } from "./models/RegisterUserModel";
-
-import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
 
 @Injectable()
 export class AccountService {

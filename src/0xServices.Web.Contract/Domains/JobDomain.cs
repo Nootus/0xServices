@@ -26,7 +26,7 @@ namespace _0xServices.Web.Contract.Domains
         {
             JobDomainDataModel model = new JobDomainDataModel
             {
-                ContractCategoris = await this.contractRepository.ContractCategoryListItems(),
+                ContractCategories = await this.contractRepository.ContractCategoryListItems(),
             };
 
             return model;
@@ -34,7 +34,7 @@ namespace _0xServices.Web.Contract.Domains
 
         public async Task PostJob(JobPostModel model)
         {
-
+            await this.contractRepository.PostJob(model);
         }
     }
 }

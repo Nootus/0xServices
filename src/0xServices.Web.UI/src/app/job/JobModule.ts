@@ -1,19 +1,24 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import {
     MatButtonModule, MatCardModule
 } from "@angular/material";
 
 import { FabricModule } from "../fabric/FabricModule";
+import { ControlModule } from "../core/controls/ControlModule";
+
+import { JobService } from "./JobService";
 import { JobPostComponent } from "./JobPostComponent";
 
 @NgModule({
     imports: [
         CommonModule,
+        MatButtonModule, MatCardModule,
         FabricModule,
-        FlexLayoutModule,
-        MatButtonModule, MatCardModule
+        ControlModule
+    ],
+    providers: [
+        JobService
     ],
     declarations: [
         JobPostComponent

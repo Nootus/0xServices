@@ -5,19 +5,17 @@
     </a>
     <div fxFlex>
     </div>
-    <div fxLayout="row" *ngIf="profile.isAuthenticated">
-        <menu-item [item]="changePasswordMenuItem" (click)="changePassword()" position="top"></menu-item>
-        <menu-item [item]="logoutMenuItem" (click)="logout()" position="top"></menu-item>
-        <div class="avatar top-bar-item has-hover" fxLayout="row">
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <menu-item [item]="changePasswordMenuItem" (click)="changePassword()" position="top" *ngIf="profile.isAuthenticated"></menu-item>
+        <menu-item [item]="logoutMenuItem" (click)="logout()" position="top" *ngIf="profile.isAuthenticated"></menu-item>
+        <div class="avatar top-bar-item has-hover" fxLayout="row" *ngIf="profile.isAuthenticated">
             <div class="avatar-icon"></div>
             <div>
                 <div class="avatar-name">{{profile.user.fullName}}</div>
                 <div class="avatar-username">{{profile.user.userName}}</div>
             </div>
         </div>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="!profile.isAuthenticated">
-        <menu-item [item]="registerMenuItem" (click)="register()" position="top"></menu-item>
-        <menu-item [item]="loginMenuItem" (click)="login()" position="top"></menu-item>
+        <menu-item [item]="registerMenuItem" (click)="register()" position="top" *ngIf="!profile.isAuthenticated"></menu-item>
+        <menu-item [item]="loginMenuItem" (click)="login()" position="top" *ngIf="!profile.isAuthenticated"></menu-item>
     </div>
 </div>

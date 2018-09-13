@@ -44,8 +44,14 @@ import { Message } from "./Message";
             useClass: FabHttpInterceptor,
             multi: true
         },
+        { provide: "BASE_URL", useFactory: getBaseUrl },
         Message
     ]
 })
 export class FabricModule {
 }
+
+export function getBaseUrl() {
+    return document.getElementsByTagName("base")[0].href;
+}
+

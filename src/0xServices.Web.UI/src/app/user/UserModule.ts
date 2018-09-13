@@ -1,5 +1,4 @@
 ﻿import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule } from "@angular/material"
 
@@ -13,23 +12,22 @@ import { UserDialogComponent } from "./UserDialogComponent";
 import { UserDialogService } from "./UserDialogService";
 
 @NgModule({
+    imports: [
+        CommonModule,
+        MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule,
+        FabricModule,
+        ControlModule
+    ],
+    exports: [
+    ],
+    providers: [
+        UserDialogService
+    ],
     declarations: [
         LoginDialogComponent,
         RegisterDialogComponent,
         ChangePasswordDialogComponent,
         UserDialogComponent
-    ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatDialogModule, MatFormFieldModule, MatInputModule, MatButtonModule,
-        FabricModule,
-        ControlModule
-    ],
-    providers: [
-        UserDialogService
-    ],
-    exports: [
     ],
     entryComponents: [
         LoginDialogComponent,

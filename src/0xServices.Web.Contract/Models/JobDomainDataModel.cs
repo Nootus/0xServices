@@ -13,6 +13,6 @@ namespace _0xServices.Web.Contract.Models
 
     public class JobDomainDataModel
     {
-        public List<ListItem<int, string>> ContractCategoris { get; set; }
+        public List<ListItem<int, string>> ContractCategories { get; set; }
     }
 }

@@ -4,6 +4,7 @@ import { Observable, of, empty, throwError } from "rxjs";
 
 import { catchError, switchMap, filter } from "rxjs/operators";
 
+import { AppSettings } from '../../environments/environment';
 import { SnackBarService } from "./notification/SnackBarService";
 import { Profile } from "./account/Profile";
 import { NTException } from "./exception/NtException";
@@ -14,7 +15,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
     private rawApiUrl: string = "/api/";
     private apiUrl: string;
-    private apiBaseUrl: string = "http://localhost:4000";
+    private apiBaseUrl: string = AppSettings.ApiBaseUrl;
 
     constructor(private profile: Profile,
         @Inject("BASE_URL") private baseUrl: string,
