@@ -30,6 +30,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
         let url: string = req.url;
         let headers: HttpHeaders = req.headers;
+        let withCredentials = req.withCredentials;
 
         if (url.indexOf(this.rawApiUrl) === 0) {
             url = this.apiBaseUrl + url;
@@ -40,9 +41,11 @@ export class FabHttpInterceptor implements HttpInterceptor {
             if (this.profile.user.companyId !== undefined) {
                 headers.set("companyId", this.profile.user.companyId.toString());
             }
+
+            withCredentials = true;
         }
 
-        const reqNew = req.clone({ url: url });
+        const reqNew = req.clone({ url: url, withCredentials: withCredentials, headers: headers });
         return next
             .handle(reqNew)
             .pipe(

@@ -34,7 +34,7 @@ namespace _0xServices.Web.Core
         public override void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(builder =>
-                builder.WithOrigins(AppSettings.AppBaseUrl).AllowAnyMethod().AllowAnyHeader());
+                builder.WithOrigins(AppSettings.AppBaseUrl).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             base.Configure(app, env);
         }
 
