@@ -12,6 +12,8 @@ namespace _0xServices.Web.Contract.Repositories
     using System.Threading.Tasks;
     using _0xServices.Web.Contract.Entities;
     using _0xServices.Web.Contract.Models;
+    using AutoMapper;
+    using Nootus.Fabric.Web.Core.Context;
     using Nootus.Fabric.Web.Core.Models;
     using Nootus.Fabric.Web.Core.Repositories;
 
@@ -29,7 +31,12 @@ namespace _0xServices.Web.Contract.Repositories
 
         public async Task PostJob(JobPostModel model)
         {
-            await this.AddEntity<ContractEntity, JobPostModel>(model);
+            ContractEntity entity = Mapper.Map<JobPostModel, ContractEntity>(model);
+            entity.UserId = NTContext.Context.UserId;
+            entity.ContractStatusId = (int)ContractStatusEnum.Job;
+            entity.PublicStatusId = (int)ContractStatusEnum.Job;
+            this.DbContext.Contracts.Add(entity);
+            await this.DbContext.SaveChangesAsync();
         }
     }
 }

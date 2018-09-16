@@ -17,8 +17,8 @@ export class JobPostComponent {
         this.jobPostForm = fb.group({
             title: ["First Job", [Validators.required, Validators.maxLength(100)]],
             description: ["Very long description", [Validators.required, Validators.maxLength(1000)]],
-            userName: ["pprasannak@yahoo.com", [Validators.required, Validators.maxLength(100), Validators.email]],
-            BudgetAmount: ["100", [Validators.required, Validators.pattern('\d+')]],
+            contractCategoryId: [1, [Validators.required]],
+            budgetAmount: ["100", [Validators.required, Validators.pattern('\d+')]],
         });
     }
 

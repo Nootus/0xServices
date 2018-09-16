@@ -6,7 +6,7 @@
         <div fxLayout="column">
             <div fxLayout="row">
                 <nt-input controlName="title" [formGroup]="jobPostForm" placeholder="Job Title"></nt-input>
-                <nt-input controlName="userName" [formGroup]="jobPostForm" placeholder="Category"></nt-input>
+                <nt-input controlName="contractCategoryId" [formGroup]="jobPostForm" placeholder="Category"></nt-input>
             </div>
             <nt-input controlName="description" [formGroup]="jobPostForm" placeholder="Description" hintLabel="Enter job description"></nt-input>
             <button type="submit" mat-raised-button class="submit-button">Post Job</button>

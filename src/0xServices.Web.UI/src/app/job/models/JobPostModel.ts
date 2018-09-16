@@ -1,7 +1,7 @@
 ﻿export class JobPostModel {
-    ContractId: number;
-    Title: string;
-    Description: string;
-    ContractCategoryId: number;
-    BudgetAmount: number;
+    contractId: number;
+    title: string;
+    description: string;
+    contractCategoryId: number;
+    budgetAmount: number;
 }

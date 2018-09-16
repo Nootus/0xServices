@@ -32,9 +32,9 @@ namespace _0xServices.Web.Contract.Controllers
             return await AjaxHelper.GetAsync(m => this.domain.JobDomainData());
         }
 
-        public async Task PostJob(JobPostModel model)
+        public async Task<AjaxModel<NTModel>> PostJob([FromBody] JobPostModel model)
         {
-            await AjaxHelper.SaveAsync(m => this.domain.PostJob(model), Messages.JobPostSuccess);
+            return await AjaxHelper.SaveAsync(m => this.domain.PostJob(model), Messages.JobPostSuccess);
         }
     }
 }

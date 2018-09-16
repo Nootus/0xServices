@@ -13,7 +13,7 @@ namespace _0xServices.Web.Contract.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using Nootus.Fabric.Web.Core.Entities;
 
-    [Table("ContractCategory", Schema = "0x")]
+    [Table("Contract", Schema = "0x")]
     public class ContractEntity : BaseEntity
     {
         [Key]
