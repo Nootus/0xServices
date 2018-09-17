@@ -1,4 +1,4 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { JobService } from "./JobService";
@@ -9,7 +9,13 @@ import { JobPostModel } from "./models/JobPostModel";
     templateUrl: "./JobPostComponent.html",
     styleUrls: ["./JobPostComponent.css"]
 })
-export class JobPostComponent {
+export class JobPostComponent implements OnInit {
+    
+    ngOnInit(): void {
+        //alert('start');
+        //    throw new Error("Method not implemented.");
+    }
+
     jobPostForm: FormGroup;
 
     constructor(private fb: FormBuilder,

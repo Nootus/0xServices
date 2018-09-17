@@ -1,7 +1,6 @@
 ﻿import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 import { MAT_SNACK_BAR_DATA } from '@angular/material';
 import { SnackBarModel } from "./models/SnackBarModel";
-import { SnackBarMessageType } from "./models/SnackBarMessageType";
 
 @Component({
     selector: "fab-snack-bar",

@@ -6,6 +6,7 @@ import { catchError, switchMap, filter } from "rxjs/operators";
 
 import { AppSettings } from '../../environments/environment';
 import { SnackBarService } from "./notification/SnackBarService";
+import { LoaderService } from "./notification/LoaderService";
 import { Profile } from "./account/Profile";
 import { NTException } from "./exception/NtException";
 import { Message } from "./Message";
@@ -19,7 +20,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
     constructor(private profile: Profile,
         @Inject("BASE_URL") private baseUrl: string,
-        private snackBarService: SnackBarService,
+        private snackBarService: SnackBarService, private loaderService: LoaderService,
         private message: Message) {
         this.baseUrl = baseUrl.charAt(baseUrl.length - 1) === "/" ? baseUrl.substr(0, baseUrl.length - 1) : baseUrl;
         this.apiUrl = this.apiBaseUrl + "/api/"
@@ -44,7 +45,8 @@ export class FabHttpInterceptor implements HttpInterceptor {
 
             withCredentials = true;
         }
-
+        
+        this.loaderService.showLoader();
         const reqNew = req.clone({ url: url, withCredentials: withCredentials, headers: headers });
         return next
             .handle(reqNew)
@@ -52,15 +54,16 @@ export class FabHttpInterceptor implements HttpInterceptor {
             filter((event: HttpEvent<any>) => (event instanceof HttpResponse)),
             switchMap((event: HttpEvent<any>, index: number): Observable<any> => {
                 let response: HttpResponse<any> = event as HttpResponse<any>;
+                let mapReturn: Observable<any> = empty();
                 if (response.body.hasOwnProperty("result") && response.body.hasOwnProperty("message") && response.body.hasOwnProperty("model")) {
                     switch (response.body.result) {
                         case 1: // unhandled exceptions in C#
-                            return throwError({ message: response.body.message });
+                            mapReturn = throwError({ message: response.body.message });
                         case 2: //validation error messages
-                            return throwError(new NTException(response.body.message, response.body.errors));
+                            mapReturn = throwError(new NTException(response.body.message, response.body.errors));
                         default:
                             this.snackBarService.showSuccess(response.body.message);
-                            var data = undefined;
+                            let data = undefined;
                             if (response.body.dashboard === null) {
                                 data = response.body.model;
                             }
@@ -70,13 +73,15 @@ export class FabHttpInterceptor implements HttpInterceptor {
                                     dashboard: response.body.dashboard
                                 }
                             }
-                            return of(response.clone({ body: data }));
+                            mapReturn = of(response.clone({ body: data }));
                     }
                 }
-                return empty();
+                this.loaderService.hideLoader();
+                return mapReturn;
             }),
             catchError((err: HttpErrorResponse) => {
                 if (err instanceof NTException) {
+                    this.loaderService.hideLoader();
                     return throwError(err);
                 }
                 if (err.status === 403) {
@@ -85,6 +90,7 @@ export class FabHttpInterceptor implements HttpInterceptor {
                     console.error(err.message);
                     this.snackBarService.showError(err.message);
                 }
+                this.loaderService.hideLoader();
                 return empty();
             }));
     }

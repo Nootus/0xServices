@@ -1,27 +1,34 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatSnackBarModule, MAT_SNACK_BAR_DATA } from "@angular/material";
+import { MatSnackBarModule, MAT_SNACK_BAR_DATA } from "@angular/material/snack-bar";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { SnackBarComponent } from "./SnackBarComponent";
 import { SnackBarService } from "./SnackBarService";
+import { LoaderComponent } from "./LoaderComponent";
+import { LoaderService } from "./LoaderService";
 
 @NgModule({
     imports: [
         CommonModule,
         FlexLayoutModule,
-        MatSnackBarModule
+        MatSnackBarModule, 
+        MatProgressSpinnerModule
     ],
-    entryComponents: [
-        SnackBarComponent
-    ],
-    declarations: [
-        SnackBarComponent
+    exports: [
+        SnackBarComponent,
+        LoaderComponent
     ],
     providers: [
         SnackBarService,
+        LoaderService
     ],
-    exports: [
+    declarations: [
+        SnackBarComponent,
+        LoaderComponent
+    ],
+    entryComponents: [
         SnackBarComponent
     ]
 })
