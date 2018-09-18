@@ -6,6 +6,7 @@
     left: 0;
     bottom: 0;
     right: 0;
+    height: 200px;
   }
 
 .show-loader {
@@ -16,11 +17,7 @@
     height: 100%;
     width: 100%;
     z-index: 9998;
-    background: #bbb;
-    opacity: 0.5;
+    background: #ddd;
+    opacity: 0.6;
     transition: opacity 0.3s linear;
-}
-
-.hide-loader {
-    visibility: hidden;
 }
