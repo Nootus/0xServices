@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------
-// <copyright file="ContractDomain.cs" company="Nootus">
+// <copyright file="JobDomain.cs" company="Nootus">
 //  Copyright (c) Nootus. All rights reserved.
 // </copyright>
 // <description>
@@ -15,7 +15,7 @@ namespace _0xServices.Web.Contract.Domains
 
     public class JobDomain
     {
-        private ContractRepository contractRepository;
+        private readonly ContractRepository contractRepository;
 
         public JobDomain(ContractRepository contractRepository)
         {

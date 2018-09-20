@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------------------------
-// <copyright file="ContractController.cs" company="Nootus">
+// <copyright file="JobController.cs" company="Nootus">
 //  Copyright (c) Nootus. All rights reserved.
 // </copyright>
 // <description>
@@ -19,7 +19,7 @@ namespace _0xServices.Web.Contract.Controllers
     [Microsoft.AspNetCore.Authorization.AllowAnonymous]
     public class JobController : Controller
     {
-        private JobDomain domain;
+        private readonly JobDomain domain;
 
         public JobController(JobDomain domain)
         {

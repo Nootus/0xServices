@@ -18,7 +18,7 @@ namespace _0xServices.Web
 
     public class Startup : WebStartup
     {
-        private List<IModuleStartup> appModules = new List<IModuleStartup>
+        private readonly List<IModuleStartup> appModules = new List<IModuleStartup>
         {
             new CoreStartup(),
             new ContractStartup(),
