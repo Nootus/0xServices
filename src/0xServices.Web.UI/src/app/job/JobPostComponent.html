@@ -1,8 +1,5 @@
 ﻿<mat-card>
     <nt-form class="" cssClass="" [formGroup]="jobPostForm" (ntSubmit)="submitForm()">
-        <div fxFlex fxLayout="column" class="content" fxLayoutAlign="center center">
-            <nt-error *ngIf="showError" [message]="errorMessage" [errors]="errors"></nt-error>
-        </div>
         <div fxLayout="column">
             <div fxLayout="row">
                 <nt-input controlName="title" [formGroup]="jobPostForm" placeholder="Job Title"></nt-input>

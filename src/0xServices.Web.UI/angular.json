@@ -92,6 +92,27 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/Services-Web-UI-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "Services-Web-UI:build",
+            "serverTarget": "Services-Web-UI:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Services-Web-UI:build:production"
+            }
+          }
         }
       }
     },

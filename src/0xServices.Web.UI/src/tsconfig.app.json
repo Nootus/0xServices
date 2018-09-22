@@ -6,8 +6,6 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts",
-    "app/AppModuleBrowser.ts",
-    "app/AppModuleServer.ts",
+    "**/*.spec.ts"
   ]
 }

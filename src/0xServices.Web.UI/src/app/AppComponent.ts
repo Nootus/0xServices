@@ -7,7 +7,4 @@ import { Router } from "@angular/router";
     styleUrls: ["./AppComponent.css"]
 })
 export class AppComponent {
-    constructor(router: Router) {
-        // router.navigateByUrl("/post");
-    }
 }
