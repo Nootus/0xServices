@@ -2,12 +2,11 @@
 import { RouterModule, Routes } from "@angular/router";
 
 import { HomeComponent } from "./home/HomeComponent";
-import { JobPostComponent } from "./job/JobPostComponent";
 
 const appRoutes: Routes = [
-    { path: "", redirectTo: "home", pathMatch: "full" },
+    { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
-    { path: "post", component: JobPostComponent },
+    { path: "post", loadChildren: "./job/JobModule#JobModule" },
     { path: "**", redirectTo: "home" }
 ];
 

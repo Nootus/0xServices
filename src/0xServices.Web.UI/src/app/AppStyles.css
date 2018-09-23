@@ -13,14 +13,11 @@ body {
     height: 100%;
 }
 
+.has-hover {
+    cursor: pointer;
+}
+
 .has-hover:hover {
     background-color: #53575b;
     color: #00bcf2;
 }
-
-/*math overrides*/
-/* .menu-item > .mat-list-item-content {
-    padding-left: 8px !important;
-    padding-right: 0px !important;
-} */
-

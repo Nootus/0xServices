@@ -7,6 +7,7 @@ import {
 import { FabricModule } from "../fabric/FabricModule";
 import { ControlModule } from "../core/controls/ControlModule";
 
+import { JobRoutingModule } from "./JobRoutingModule";
 import { JobService } from "./JobService";
 import { JobPostComponent } from "./JobPostComponent";
 
@@ -15,7 +16,8 @@ import { JobPostComponent } from "./JobPostComponent";
         CommonModule,
         MatButtonModule, MatCardModule,
         FabricModule,
-        ControlModule
+        ControlModule,
+        JobRoutingModule
     ],
     providers: [
         JobService
