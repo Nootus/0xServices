@@ -30,24 +30,25 @@ export class FabHttpInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         let url: string = req.url;
-        let headers: HttpHeaders = req.headers;
         let withCredentials = req.withCredentials;
+        let headers: any = {};
 
         if (url.indexOf(this.rawApiUrl) === 0) {
             url = this.apiBaseUrl + url;
         }
 
         if (url.indexOf(this.apiUrl) === 0) {
-            // setting companyid in the header
+            // setting companyid and timezone in the header
             if (this.profile.user.companyId !== undefined) {
-                headers.set("companyId", this.profile.user.companyId.toString());
+                headers.companyId = this.profile.user.companyId;
             }
 
+            headers.browserTimezoneOffset = new Date().getTimezoneOffset();
             withCredentials = true;
         }
         
         this.loaderService.showLoader();
-        const reqNew = req.clone({ url: url, withCredentials: withCredentials, headers: headers });
+        const reqNew = req.clone({ url: url, withCredentials: withCredentials, setHeaders: headers });
         return next
             .handle(reqNew)
             .pipe(

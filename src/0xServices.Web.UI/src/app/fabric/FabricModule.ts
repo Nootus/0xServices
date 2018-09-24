@@ -49,15 +49,6 @@ import { Message } from "./Message";
     ]
 })
 export class FabricModule {
-    constructor(){
-        Date.prototype.toISOString = function() {
-            return this.getFullYear() + "-" + this.getMonth().toString().padStart(2, "0") 
-                + "-" + this.getDate().toString().padStart(2, "0") + "T" 
-                + this.getHours().toString().padStart(2, "0") + ":" 
-                + this.getMinutes().toString().padStart(2, 0) + ":" 
-                + this.getSeconds().toString().padStart(2, 0);
-        };
-    }
 }
 
 export function getBaseUrl() {
