@@ -1,4 +1,6 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnDestroy } from "@angular/core";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 import { UserDialogService } from "../user/UserDialogService";
 import { Profile } from "../fabric/account/Profile";
@@ -10,7 +12,9 @@ import { MenuModel } from "./models/MenuModel";
     templateUrl: "./TopBarComponent.html",
     styleUrls: ["./TopBarComponent.css"]
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnDestroy {
+
+    private unsubscribe: Subject<void> = new Subject();
 
     registerMenuItem: MenuModel = { name: "register", text: "Register", routerUrl: undefined, iconCss: "register-icon", tooltip: "Register a new User", tooltipPosition: "below" };
     loginMenuItem: MenuModel = { name: "login", text: "Login", routerUrl: undefined, iconCss: "login-icon", tooltip: "Login", tooltipPosition: "below" };
@@ -36,8 +40,15 @@ export class TopBarComponent {
     }
 
     logout() {
-        this.accountService.logout().subscribe(() => {
-            this.profile.logout();
-        })
+        this.accountService.logout()
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe(() => {
+                this.profile.logout();
+            })
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

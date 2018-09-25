@@ -30,7 +30,7 @@ export class RegisterDialogComponent {
     }
 
     submitForm(model: RegisterUserModel) {
-        this.userDialogComponent.subscribe(
+        this.userDialogComponent.submit(
             this.accountService.register(model));
     }
 }

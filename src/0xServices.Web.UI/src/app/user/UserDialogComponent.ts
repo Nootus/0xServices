@@ -1,9 +1,9 @@
-﻿import { Component, ViewEncapsulation, Input, Output, EventEmitter, ViewChild, ViewChildren, QueryList } from "@angular/core";
+﻿import { Component, ViewEncapsulation, Input, Output, EventEmitter, ViewChild, ViewChildren, QueryList, OnDestroy } from "@angular/core";
 import { FormGroup, NgForm, FormGroupDirective } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
-import { Observable, empty } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Observable, Subject, empty } from "rxjs";
+import { catchError, takeUntil } from "rxjs/operators";
 
 import { NTException } from "../fabric/exception/NtException";
 import { NTError } from "../fabric/exception/NtError";
@@ -15,7 +15,7 @@ import { NTErrorStateMatcher } from "../fabric/exception/NTErrorStateMatcher";
     styleUrls: ["./UserDialogComponent.css"],
     encapsulation: ViewEncapsulation.None
 })
-export class UserDialogComponent<TDialogComponent> {
+export class UserDialogComponent<TDialogComponent> implements OnDestroy {
     @Input() userForm: FormGroup;
     @Output() ntSubmit: EventEmitter<any> = new EventEmitter();
     showError: boolean = false;
@@ -25,6 +25,7 @@ export class UserDialogComponent<TDialogComponent> {
     @ViewChild(FormGroupDirective) frm: FormGroupDirective;
     @ViewChildren(FormGroupDirective) frmGrp: QueryList<FormGroupDirective>
     matcher: NTErrorStateMatcher = new NTErrorStateMatcher();
+    private unsubscribe: Subject<void> = new Subject();
 
     constructor(private dialogRef: MatDialogRef<TDialogComponent>) {
     }
@@ -40,7 +41,7 @@ export class UserDialogComponent<TDialogComponent> {
         }
     }
 
-    subscribe(submitted :Observable<any>) {
+    submit(submitted :Observable<any>) {
         submitted
             .pipe(
             catchError((exp: NTException) => {
@@ -48,7 +49,9 @@ export class UserDialogComponent<TDialogComponent> {
                 this.errors = exp.errors;
                 this.showError = true;
                 return empty();
-            }))
+            }),
+            takeUntil(this.unsubscribe)
+            )
             .subscribe(() => {
                 this.close();
             });
@@ -56,5 +59,10 @@ export class UserDialogComponent<TDialogComponent> {
 
     getErrorMessage(): string {
         return "Error";
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

@@ -1,22 +1,19 @@
-﻿import { Component, OnInit } from "@angular/core";
+﻿import { Component, OnDestroy } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 import { JobService } from "./JobService";
-import { JobPostModel } from "./models/JobPostModel";
 
 @Component({
     selector: "job-post",
     templateUrl: "./JobPostComponent.html",
     styleUrls: ["./JobPostComponent.css"]
 })
-export class JobPostComponent implements OnInit {
+export class JobPostComponent implements OnDestroy {
     
-    ngOnInit(): void {
-        //alert('start');
-        //    throw new Error("Method not implemented.");
-    }
-
     jobPostForm: FormGroup;
+    private unsubscribe: Subject<void> = new Subject();
 
     constructor(private fb: FormBuilder,
         private jobService: JobService) {
@@ -29,6 +26,13 @@ export class JobPostComponent implements OnInit {
     }
 
     submitForm(): void {
-        this.jobService.postJob(this.jobPostForm.value).subscribe();
+        this.jobService.postJob(this.jobPostForm.value)
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe();
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

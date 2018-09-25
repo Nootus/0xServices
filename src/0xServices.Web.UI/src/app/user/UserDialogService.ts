@@ -1,13 +1,16 @@
-﻿import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+﻿import { Injectable, OnDestroy } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material"
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 import { LoginDialogComponent } from "./LoginDialogComponent";
 import { RegisterDialogComponent } from "./RegisterDialogComponent";
 import { ChangePasswordDialogComponent } from "./ChangePasswordDialogComponent";
 
 @Injectable()
-export class UserDialogService {
+export class UserDialogService implements OnDestroy {
+
+    private unsubscribe: Subject<void> = new Subject();
 
     constructor(private dialog: MatDialog) {
     }
@@ -17,7 +20,9 @@ export class UserDialogService {
             panelClass: "login-dialog"
         });
 
-        dialogRef.afterClosed().subscribe();
+        dialogRef.afterClosed()
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe();
     }
 
     register(): void {
@@ -25,14 +30,23 @@ export class UserDialogService {
             panelClass: "register-dialog"
         });
 
-        dialogRef.afterClosed().subscribe();
-    }
+        dialogRef.afterClosed()
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe();
+}
 
     changePassword(): void {
         let dialogRef: MatDialogRef<ChangePasswordDialogComponent> = this.dialog.open(ChangePasswordDialogComponent, {
             panelClass: "password-dialog"
         });
 
-        dialogRef.afterClosed().subscribe();
+        dialogRef.afterClosed()
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe();
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

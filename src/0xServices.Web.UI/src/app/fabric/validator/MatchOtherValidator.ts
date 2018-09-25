@@ -1,9 +1,13 @@
-﻿import { AbstractControl, Validator, ValidationErrors } from '@angular/forms';
+﻿import { OnDestroy } from '@angular/core';
+import { AbstractControl, Validator, ValidationErrors } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-export class MatchOtherValidator implements Validator {
+export class MatchOtherValidator implements Validator, OnDestroy {
 
     control: AbstractControl;
     otherControl: AbstractControl;
+    private unsubscribe: Subject<void> = new Subject();
 
     constructor(private otherControlName: string, private message: string) {
 
@@ -22,9 +26,11 @@ export class MatchOtherValidator implements Validator {
                 throw new Error('matchOtherValidator(): other control is not found in parent group');
             }
 
-            this.otherControl.valueChanges.subscribe(() => {
-                this.control.updateValueAndValidity();
-            });
+            this.otherControl.valueChanges
+                .pipe(takeUntil(this.unsubscribe))
+                .subscribe(() => {
+                    this.control.updateValueAndValidity();
+                });
         }
 
         if (!this.otherControl) {
@@ -43,9 +49,13 @@ export class MatchOtherValidator implements Validator {
 
         return null;
     }
-
-    
+   
     private isEmptyInputValue(value: any): boolean {
         return value == null || value.length === 0;
+    }
+
+    ngOnDestroy() {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

@@ -2,20 +2,23 @@ import { Injectable, OnDestroy } from "@angular/core";
 import {
     Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router
   } from '@angular/router';
-  import { BehaviorSubject } from 'rxjs';
-  import { Subscription } from "rxjs";
-
+  import { BehaviorSubject, Subject } from 'rxjs';
+  import { takeUntil } from 'rxjs/operators';
+  
+  
 @Injectable()
 export class LoaderService implements OnDestroy {
     public loader: BehaviorSubject<boolean>;
     
-    private routerEvents: Subscription;
+    private unsubscribe: Subject<void> = new Subject();
     private queue: Array<number> = [];
 
     constructor(private router: Router) {
         this.loader = new BehaviorSubject<boolean>(false);
 
-        this.routerEvents = this.router.events.subscribe((event: Event) => {
+        this.router.events
+        .pipe(takeUntil(this.unsubscribe))
+        .subscribe((event: Event) => {
           switch (true) {
             case event instanceof NavigationStart: {
               this.showLoader();
@@ -51,6 +54,7 @@ export class LoaderService implements OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.routerEvents.unsubscribe();
-    }
+      this.unsubscribe.next();
+      this.unsubscribe.complete();
+  }
 }

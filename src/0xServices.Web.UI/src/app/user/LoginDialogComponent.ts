@@ -25,7 +25,7 @@ export class LoginDialogComponent {
     }
 
     submitForm(model: LoginModel) {
-        this.userDialogComponent.subscribe(
+        this.userDialogComponent.submit(
             this.accountService.validate(model));
     }
 }

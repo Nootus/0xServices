@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from "@angular/core";
 import { LoaderService } from "./LoaderService";
-import { Subscription } from "rxjs";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
     selector: "fab-loader",
@@ -10,16 +11,19 @@ import { Subscription } from "rxjs";
 export class LoaderComponent implements OnDestroy {
     public loading: boolean = false;
 
-    private loadEvent: Subscription;
+    private unsubscribe: Subject<void> = new Subject();
 
     constructor(public service: LoaderService) { 
-        this.loadEvent = this.service.loader.subscribe(state => {
-            this.loading = state
-            // alert('changed');
-        });
+        this.service.loader
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe(state => {
+                this.loading = state
+                // alert('changed');
+            });
     }
 
     ngOnDestroy(): void {
-        this.loadEvent.unsubscribe();
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

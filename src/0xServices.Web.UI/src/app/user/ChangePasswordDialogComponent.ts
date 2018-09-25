@@ -28,7 +28,7 @@ export class ChangePasswordDialogComponent {
     }
 
     submitForm(model: ChangePasswordModel) {
-        this.userDialogComponent.subscribe(
+        this.userDialogComponent.submit(
             this.accountService.changePassword(model));
     }
 }
