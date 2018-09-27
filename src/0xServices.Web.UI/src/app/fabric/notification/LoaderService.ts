@@ -13,10 +13,10 @@ export class LoaderService implements OnDestroy {
     private unsubscribe: Subject<void> = new Subject();
     private queue: Array<number> = [];
 
-    constructor(private router: Router) {
+    constructor(router: Router) {
         this.loader = new BehaviorSubject<boolean>(false);
 
-        this.router.events
+        router.events
         .pipe(takeUntil(this.unsubscribe))
         .subscribe((event: Event) => {
           switch (true) {

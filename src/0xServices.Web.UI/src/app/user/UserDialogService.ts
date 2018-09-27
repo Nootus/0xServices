@@ -33,7 +33,7 @@ export class UserDialogService implements OnDestroy {
         dialogRef.afterClosed()
             .pipe(takeUntil(this.unsubscribe))
             .subscribe();
-}
+    }
 
     changePassword(): void {
         let dialogRef: MatDialogRef<ChangePasswordDialogComponent> = this.dialog.open(ChangePasswordDialogComponent, {

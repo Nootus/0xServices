@@ -1,12 +1,14 @@
 import { Injectable }     from '@angular/core';
+import { Router }    from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Profile } from './Profile';
+
 @Injectable()
 export class AuthService {
     public challenge: BehaviorSubject<boolean>;
     private redirecturl: string;
 
-    constructor(private profile: Profile) {
+    constructor(private router: Router, private profile: Profile) {
         this.challenge = new BehaviorSubject<boolean>(false);
     }
 
@@ -16,15 +18,19 @@ export class AuthService {
             this.challenge.next(true);
         }
         else {
-            this.redirecturl = undefined;
-            this.challenge.next(false);
+            this.clearChallenge();
         }
 
         return this.profile.isAuthenticated;
     }
 
-    clearChallenge() {
+    private clearChallenge(): void {
         this.redirecturl = undefined;
         this.challenge.next(false);
+    }
+
+    redirectFromLogin() {
+        this.router.navigateByUrl(this.redirecturl);
+        this.clearChallenge();
     }
 }

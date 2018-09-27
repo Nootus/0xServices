@@ -2,8 +2,9 @@
 import { CommonModule } from "@angular/common";
 
 import { AccountService } from "./AccountService";
-import { Profile } from "./Profile";
+import { AuthService } from "./AuthService";
 import { AuthGuard } from "./AuthGuard";
+import { Profile } from "./Profile";
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { AuthGuard } from "./AuthGuard";
     ],
     providers: [
         AuthGuard,
+        AuthService,
         AccountService,
         Profile
     ],

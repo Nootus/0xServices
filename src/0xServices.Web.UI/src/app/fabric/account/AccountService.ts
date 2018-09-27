@@ -4,6 +4,7 @@ import { Observable, Subject } from "rxjs";
 import { tap, takeUntil } from "rxjs/operators";
 
 import { Profile } from "./Profile";
+import { AuthService } from "./AuthService";
 import { ProfileModel } from "./models/ProfileModel";
 import { LoginModel } from "./models/LoginModel";
 import { ChangePasswordModel } from "./models/ChangePasswordModel";
@@ -14,22 +15,23 @@ export class AccountService  implements OnDestroy {
 
     private unsubscribe: Subject<void> = new Subject();
 
-    constructor(private http: HttpClient, private profile: Profile) {
+    constructor(private http: HttpClient, private profile: Profile, private authService: AuthService) {
     }
 
     public register(model: RegisterUserModel): Observable<ProfileModel> {
-        return this.http.post<ProfileModel>("/api/user/register", model)
-            .pipe(
-            tap((data: ProfileModel) => {
-                this.profile.populate(data);
-            }));
+        return this.registerOrValidate("/api/user/register", model);
     }
 
     public validate(model: LoginModel): Observable<ProfileModel> {
-        return this.http.post<ProfileModel>("/api/account/validate", model)
+        return this.registerOrValidate("/api/account/validate", model);
+    }
+
+    private registerOrValidate(url: string, model: LoginModel | RegisterUserModel): Observable<ProfileModel> {
+        return this.http.post<ProfileModel>(url, model)
             .pipe(
             tap((data: ProfileModel) => {
                 this.profile.populate(data);
+                this.authService.redirectFromLogin();
             }));
     }
 
