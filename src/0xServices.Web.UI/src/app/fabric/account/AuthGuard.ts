@@ -5,13 +5,8 @@ import { Route, CanLoad, CanActivate }    from '@angular/router';
 export class AuthGuard implements CanLoad, CanActivate {
   canLoad(route: Route) {
       //debugger;
+      //route.redirectTo
     console.log('Auth Guard - Can Load');
     return false;
-  }
-
-  canActivate(){
-      debugger;
-      console.log('Auth Guard - Can Activate');
-      return false;
   }
 }
