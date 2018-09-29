@@ -27,7 +27,7 @@ namespace _0xServices.Web.Contract.Controllers
         }
 
         [HttpGet]
-        public async Task<AjaxModel<JobDomainDataModel>> JobDomainData()
+        public async Task<AjaxModel<JobPostDomainDataModel>> JobDomainData()
         {
             return await AjaxHelper.GetAsync(m => this.domain.JobDomainData());
         }

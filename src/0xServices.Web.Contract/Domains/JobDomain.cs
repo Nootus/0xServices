@@ -22,9 +22,9 @@ namespace _0xServices.Web.Contract.Domains
             this.contractRepository = contractRepository;
         }
 
-        public async Task<JobDomainDataModel> JobDomainData()
+        public async Task<JobPostDomainDataModel> JobDomainData()
         {
-            JobDomainDataModel model = new JobDomainDataModel
+            JobPostDomainDataModel model = new JobPostDomainDataModel
             {
                 ContractCategories = await this.contractRepository.ContractCategoryListItems(),
             };
