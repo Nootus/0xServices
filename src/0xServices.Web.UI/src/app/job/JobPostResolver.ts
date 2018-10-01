@@ -1,7 +1,6 @@
 import { Injectable }             from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable }             from 'rxjs';
-import { map, take }              from 'rxjs/operators';
 
 import { JobPostDomainDataModel } from './models/JobPostDomainDataModel';
 import { JobService } from './JobService';

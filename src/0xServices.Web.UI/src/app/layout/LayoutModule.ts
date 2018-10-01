@@ -1,12 +1,9 @@
 ﻿import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import {
-    MatButtonModule, MatDialogModule,
-    MatCardModule, MatListModule,
-    MatIconModule, MatTooltipModule
+    MatCardModule, MatListModule, MatTooltipModule
 } from "@angular/material";
 
+//import { FabricCoreModule } from "../fabric/FabricCoreModule";
 import { FabricModule } from "../fabric/FabricModule";
 import { UserModule } from "../user/UserModule";
 
@@ -16,16 +13,9 @@ import { LayoutComponent } from "./LayoutComponent";
 
 @NgModule({
     imports: [
-        CommonModule,
-        FlexLayoutModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatCardModule,
-        MatListModule,
-        MatIconModule,
-        MatTooltipModule,
-        FabricModule,
-        UserModule
+        MatCardModule, MatListModule, MatTooltipModule,
+        FabricModule, UserModule
+        // FabricCoreModule
     ],
     declarations: [
         MenuItemComponent,

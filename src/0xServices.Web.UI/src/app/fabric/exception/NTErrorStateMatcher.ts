@@ -17,6 +17,5 @@ export class NTErrorStateMatcher implements ErrorStateMatcher {
         }
 
         return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-        // return !!(control && control.invalid && (control.dirty || control.touched));
     }
 }

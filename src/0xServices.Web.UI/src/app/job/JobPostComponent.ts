@@ -1,21 +1,24 @@
-﻿import { Component, OnDestroy } from "@angular/core";
+﻿import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 import { JobService } from "./JobService";
+import { JobPostDomainDataModel } from "./models/JobPostDomainDataModel";
 
 @Component({
     selector: "job-post",
     templateUrl: "./JobPostComponent.html",
     styleUrls: ["./JobPostComponent.css"]
 })
-export class JobPostComponent implements OnDestroy {
+export class JobPostComponent implements OnInit, OnDestroy {
     
     jobPostForm: FormGroup;
+    domainData: JobPostDomainDataModel;
     private unsubscribe: Subject<void> = new Subject();
 
-    constructor(private fb: FormBuilder,
+    constructor(private fb: FormBuilder, private route: ActivatedRoute,
         private jobService: JobService) {
         this.jobPostForm = fb.group({
             title: ["First Job", [Validators.required, Validators.maxLength(100)]],
@@ -23,6 +26,14 @@ export class JobPostComponent implements OnDestroy {
             contractCategoryId: [1, [Validators.required]],
             budgetAmount: ["100", [Validators.required, Validators.pattern('\d+')]],
         });
+    }
+
+    ngOnInit() {
+        this.route.data
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe((data: {domainData: JobPostDomainDataModel}) => {
+                this.domainData = data.domainData;
+            })
     }
 
     submitForm(): void {

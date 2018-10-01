@@ -1,11 +1,8 @@
 ﻿import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import {
-    MatButtonModule, MatCardModule
-} from "@angular/material";
+import { MatCardModule } from "@angular/material";
 
-import { FabricModule } from "../fabric/FabricModule";
+import { FabricCoreModule } from "../fabric/FabricCoreModule";
 import { HomeComponent } from "./HomeComponent";
 import { FeatureSectionComponent } from "./FeatureSectionComponent";
 import { HowItWorksComponent } from "./HowItWorksComponent";
@@ -15,10 +12,8 @@ import { FooterComponent } from "./FooterComponent";
 
 @NgModule({
     imports: [
-        CommonModule,
-        FabricModule,
-        FlexLayoutModule,
-        MatButtonModule, MatCardModule
+        FabricCoreModule,
+        MatCardModule
     ],
     declarations: [
         HomeComponent,

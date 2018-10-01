@@ -9,6 +9,7 @@ import { ControlModule } from "../core/controls/ControlModule";
 
 import { JobRoutingModule } from "./JobRoutingModule";
 import { JobService } from "./JobService";
+import { JobPostResolver } from "./JobPostResolver";
 import { JobPostComponent } from "./JobPostComponent";
 
 @NgModule({
@@ -20,7 +21,8 @@ import { JobPostComponent } from "./JobPostComponent";
         JobRoutingModule
     ],
     providers: [
-        JobService
+        JobService,
+        JobPostResolver
     ],
     declarations: [
         JobPostComponent
